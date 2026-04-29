@@ -8,10 +8,10 @@ const Form = () => {
         // Background Container
         <div className="flex flex-col items-center h-auto justify-center bg-[#3B443B]">
 
-            <h1 className="text-[#2A2D2A] text-3xl font-bold py-7">Form Page</h1>
+            <h1 className="text-white text-3xl font-bold py-7">Form Page</h1>
 
             {/* Form */}
-            <div className="flex flex-col items-center w-3/4 h-auto mt-1 pt-10 bg-[#D4CFC4] rounded-lg shadow-lg">
+            <div className="flex flex-col items-center w-3/4 h-auto mt-1 pt-6 bg-[#D4CFC4] rounded-lg shadow-lg">
 
 
                 {/* FormCheckpointCard */}

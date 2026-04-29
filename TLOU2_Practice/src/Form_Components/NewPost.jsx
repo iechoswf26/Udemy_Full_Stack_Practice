@@ -12,7 +12,7 @@ const NewPost = () => {
 
                 <div className="flex justify-end">
                     <button
-                        className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#253225] transition">Post
+                        className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#161d16] transition">Post
                     </button>
                 </div>
 

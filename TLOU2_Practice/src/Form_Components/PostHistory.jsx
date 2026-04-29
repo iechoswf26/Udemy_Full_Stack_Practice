@@ -10,14 +10,14 @@ const PostHistory = () => {
 
                 <div className="flex justify-between">
                     <p className="text-xl">USERNAME GOES HERE</p>
-                    <FontAwesomeIcon icon={faRectangleXmark} className="text-[#2F3E2F] hover:text-[#E7E3DA] transition fa-2xl" />
+                    <FontAwesomeIcon icon={faRectangleXmark} className="text-[#2F3E2F] hover:text-[#733c26] transition fa-2xl" />
                 </div>
 
                 <p className="p-2 px-4 h-25 border border-[#7C857C] rounded-xl bg-[#6E7C7A] text-start text-[#E7E3DA] text-lg placeholder:text-[#D4CFC4] focus:outline-none">Existing post</p>
 
                 <div className="flex justify-between">
                     <p className="text-[#2F3E2F] text-lg font-medium">DATE/TIME GOES HERE</p>
-                    <button className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#253225] transition">Delete</button>
+                    <button className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#161d16] transition">Delete</button>
                 </div>
 
             </div>

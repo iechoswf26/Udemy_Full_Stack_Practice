@@ -1,6 +1,7 @@
-import {slides} from './data/data.js'
+import {slides} from './data/chapterOne.js'
 import SampleCarousel from "./components/SampleCarousel.jsx";
 import Form from "./pages/Form.jsx";
+
 
 const App = () => {
 
@@ -11,9 +12,8 @@ const App = () => {
   return (
       <div>
 
-          {/*<SampleCarousel slides={slides} isPageBackground={false}/>*/}
-          <Form/>
-
+          <SampleCarousel slides={slides} isPageBackground={false}/>
+          {/*<Form/>*/}
 
 
       </div>

@@ -74,7 +74,7 @@ function useTilt(animationDuration = '150ms') {
     return ref;
 }
 
-const Slide = ({ image, title, subtitle, description, offset, isPageBackground }) => {
+const Slide = ({ image, title, description, question, offset, isPageBackground }) => {
     const active = offset === 0,
         ref = useTilt(active);
 
@@ -97,7 +97,7 @@ const Slide = ({ image, title, subtitle, description, offset, isPageBackground }
                 />
             )}
             <div
-                // ref={ref}
+                ref={ref}
                 className="slideContent"
                 style={{
                     backgroundImage: `url('${image}')`,
@@ -109,14 +109,14 @@ const Slide = ({ image, title, subtitle, description, offset, isPageBackground }
                             {title}
                         </h2>
                     )}
-                    {/*{subtitle && (*/}
-                    {/*    <h3 className="slideSubtitle" dir="auto">*/}
-                    {/*        {subtitle}*/}
-                    {/*    </h3>*/}
-                    {/*)}*/}
                     {description && (
-                        <p className="slideDescription" dir="auto">
+                        <h3 className="slideDescription" dir="auto">
                             {description}
+                        </h3>
+                    )}
+                    {question && (
+                        <p className="slideQuestion" dir="auto">
+                            {question}
                         </p>
                     )}
                 </div>
@@ -128,8 +128,8 @@ const Slide = ({ image, title, subtitle, description, offset, isPageBackground }
 Slide.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string,
-    // subtitle: PropTypes.string,
     description: PropTypes.string,
+    question: PropTypes.string,
     offset: PropTypes.number.isRequired,
     isPageBackground: PropTypes.bool,
 };
@@ -146,7 +146,7 @@ const Carousel = ({ slides, isPageBackground }) => {
     };
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center justify-center mt-20">
             <h1>Chapter 1</h1>
             <div className="flex flex-row justify-center mt-12">
                 <button onClick={handlePrevSlide} >
@@ -168,8 +168,8 @@ const Carousel = ({ slides, isPageBackground }) => {
                                     <Slide
                                         image={slide.image}
                                         title={slide.title}
-                                        // subtitle={slide.subtitle}
                                         description={slide.description}
+                                        question={slide.question}
                                         offset={offset}
                                         isPageBackground={isPageBackground}
                                         key={i}
