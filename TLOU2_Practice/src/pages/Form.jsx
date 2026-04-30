@@ -1,8 +1,12 @@
 import FormCheckpointCard from "../Form_Components/FormCheckpointCard.jsx";
 import NewPost from "../Form_Components/NewPost.jsx";
 import PostHistory from "../Form_Components/PostHistory.jsx";
+import {slides} from '../data/chapterOne.js'
 
 const Form = () => {
+
+    const chapter = slides;
+
     return (
 
         // Background Container
@@ -15,7 +19,12 @@ const Form = () => {
 
 
                 {/* FormCheckpointCard */}
-                <FormCheckpointCard/>
+                {chapter.map((slide) => {
+                    return (
+                        <FormCheckpointCard key={slide.id} {...slide}/>
+                    )
+                })}
+
 
                 {/*    New Post */}
                 <NewPost/>

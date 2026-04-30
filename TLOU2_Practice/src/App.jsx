@@ -1,6 +1,6 @@
-import Navbar from "./Navbar_Components/Navbar.jsx";
+import Navbar from "../src/Navbar_Components/Navbar.jsx";
 import {BrowserRouter as Router} from "react-router-dom";
-import AppRoutes from "./Navbar_Components/AppRoutes.jsx";
+import AppRoutes from "../src/Navbar_Components/AppRoutes.jsx";
 
 
 const App = () => {

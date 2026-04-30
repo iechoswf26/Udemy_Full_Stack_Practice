@@ -5,6 +5,8 @@ import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import {useNavigate} from "react-router-dom";
+
 
 function useTilt(animationDuration = '150ms') {
     const ref = useRef(null);
@@ -78,6 +80,8 @@ const Slide = ({ image, title, description, question, offset, isPageBackground }
     const active = offset === 0,
         ref = useTilt(active);
 
+    const navigate = useNavigate();
+
     return (
         <div
             ref={ref}
@@ -87,6 +91,7 @@ const Slide = ({ image, title, description, question, offset, isPageBackground }
                 '--offset': offset,
                 '--dir': offset === 0 ? 0 : offset > 0 ? 1 : -1,
             }}
+            onClick={() => navigate("/Form")}
         >
             {isPageBackground && (
                 <div

@@ -63,3 +63,4 @@ export const slides = [
         image: packingUp
     },
 ];
+
