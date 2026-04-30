@@ -181,7 +181,7 @@ const Carousel = ({ slides, isPageBackground }) => {
                     </div>
                 </section>
                 <button onClick={handleNextSlide} >
-                    <FontAwesomeIcon icon={faAngleRight} className="text-2xl" />
+                    <FontAwesomeIcon icon={faAngleRight} className="text-3xl" />
                 </button>
             </div>
         </div>

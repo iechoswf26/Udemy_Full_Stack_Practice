@@ -1,6 +1,6 @@
-import {slides} from './data/chapterOne.js'
-import SampleCarousel from "./components/SampleCarousel.jsx";
-import Form from "./pages/Form.jsx";
+import Navbar from "./Navbar_Components/Navbar.jsx";
+import {BrowserRouter as Router} from "react-router-dom";
+import AppRoutes from "./Navbar_Components/AppRoutes.jsx";
 
 
 const App = () => {
@@ -12,7 +12,13 @@ const App = () => {
   return (
       <div>
 
-          <SampleCarousel slides={slides} isPageBackground={false}/>
+          <Router>
+              <Navbar/>
+              <AppRoutes/>
+          </Router>
+
+
+          {/*<Carousel slides={slides} isPageBackground={false}/>*/}
           {/*<Form/>*/}
 
 
