@@ -5,7 +5,6 @@ import {slides} from '../data/chapterOne.js'
 
 const Form = () => {
 
-    const chapter = slides;
 
     return (
 
@@ -19,7 +18,7 @@ const Form = () => {
 
 
                 {/* FormCheckpointCard */}
-                {chapter.map((slide) => {
+                {slides.map((slide) => {
                     return (
                         <FormCheckpointCard key={slide.id} {...slide}/>
                     )

@@ -12,14 +12,14 @@ const FormCheckpointCard = (slide) => {
             <img
                 src={slide.image}
                 alt={slide.title}
-                className="object-fit rounded-l-xl rounded-r-xl h-80 transform"
+                className="object-fit inset-x-0 top-0 h-60 rounded-l-xl rounded-r-xl"
             />
 
             {/* Content*/}
             <div className="p-6">
-                <h2 className="text-2xl font-bold text-center text-[#2A2D2A]">{slide.title}</h2>
-                <p className="max-w-xs my-1 text-s font-medium leading-5 tracking-wide text-center text-[#2A2D2A]">{slide.description}</p>
-                <p className="max-w-xs my-2 mt-6 text-xl leading-5 tracking-wide text-center text-[#E7E3DA]">{slide.question}</p>
+                <h2 className="text-3xl font-bold text-center text-[#2A2D2A]">{slide.title}</h2>
+                <p className="max-w-lg my-1 text-xl font-medium leading-5 tracking-wide text-justify text-[#2A2D2A]">{slide.description}</p>
+                <p className="max-w-lg my-2 mt-6 text-s leading-5 tracking-wide text-lg text-justify text-[#E7E3DA]">{slide.question}</p>
 
             </div>
 
