@@ -5,24 +5,14 @@ import AppRoutes from "../src/Navbar_Components/AppRoutes.jsx";
 
 const App = () => {
 
-
-    // const [isOpen, setIsOpen] = useState(false)
-
-
   return (
-      <div>
 
-          <Router>
-              <Navbar/>
-              <AppRoutes/>
-          </Router>
-
-
-          {/*<Carousel slides={slides} isPageBackground={false}/>*/}
-          {/*<Form/>*/}
+      <Router>
+          <Navbar/>
+          <AppRoutes/>
+      </Router>
 
 
-      </div>
   )
 }
 
