@@ -1,7 +1,6 @@
 import FormCheckpointCard from "../Form_Components/FormCheckpointCard.jsx";
 import NewPost from "../Form_Components/NewPost.jsx";
 import PostHistory from "../Form_Components/PostHistory.jsx";
-import {slides} from '../data/chapterOne.js'
 import React, {useContext} from 'react';
 import {CardContext} from "../Context/CheckpointContext.jsx";
 import postHistory from "../data/postHistory.js";
