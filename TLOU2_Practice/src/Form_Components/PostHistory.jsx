@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRectangleXmark} from '@fortawesome/free-solid-svg-icons'
 
-const PostHistory = () => {
+const PostHistory = ({id, checkpointId, username, post, date, time}) => {
     return (
         <div className="flex flex-col w-11/12 h-65 my-2 p-3 mb-8 border-2 rounded-xl border-[#A8ADA3] bg-[#8C978C]">
 
@@ -9,14 +9,14 @@ const PostHistory = () => {
             <div className="mt-3 space-y-3 px-4 ">
 
                 <div className="flex justify-between">
-                    <p className="text-xl">USERNAME GOES HERE</p>
+                    <p className="text-xl">{username}</p>
                     <FontAwesomeIcon icon={faRectangleXmark} className="text-[#2F3E2F] hover:text-[#733c26] transition fa-2xl" />
                 </div>
 
-                <p className="p-2 px-4 h-25 border border-[#7C857C] rounded-xl bg-[#6E7C7A] text-start text-[#E7E3DA] text-lg placeholder:text-[#D4CFC4] focus:outline-none">Existing post</p>
+                <p className="p-2 px-4 h-25 border border-[#7C857C] rounded-xl bg-[#6E7C7A] text-start text-[#E7E3DA] text-lg placeholder:text-[#D4CFC4] focus:outline-none">{post}</p>
 
                 <div className="flex justify-between">
-                    <p className="text-[#2F3E2F] text-lg font-medium">DATE/TIME GOES HERE</p>
+                    <p className="text-[#2F3E2F] text-lg font-medium">{date}/{time}</p>
                     <button className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#161d16] transition">Delete</button>
                 </div>
 

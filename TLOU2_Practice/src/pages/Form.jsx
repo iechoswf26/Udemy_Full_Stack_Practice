@@ -2,9 +2,22 @@ import FormCheckpointCard from "../Form_Components/FormCheckpointCard.jsx";
 import NewPost from "../Form_Components/NewPost.jsx";
 import PostHistory from "../Form_Components/PostHistory.jsx";
 import {slides} from '../data/chapterOne.js'
+import React, {useContext} from 'react';
+import {CardContext} from "../Context/CheckpointContext.jsx";
+import postHistory from "../data/postHistory.js";
 
 const Form = () => {
 
+    const context = useContext(CardContext)
+    if (!context) {
+        throw Error("This doesn't work!")
+    }
+
+    const {card} = context
+
+    console.log(postHistory)
+    console.log(postHistory.filter((post) => post.id === card.id))
+    console.log(card)
 
     return (
 
@@ -18,11 +31,8 @@ const Form = () => {
 
 
                 {/* FormCheckpointCard */}
-                {slides.map((slide) => {
-                    return (
-                        <FormCheckpointCard key={slide.id} {...slide}/>
-                    )
-                })}
+
+                <FormCheckpointCard key={card.id} {...card}/>
 
 
                 {/*    New Post */}
@@ -33,7 +43,9 @@ const Form = () => {
                 <div className="flex items-center justify-center">
                     <h1 className="text-3xl">Post History</h1>
                 </div>
-                <PostHistory/>
+
+                {postHistory.filter(post => post.checkpointId === card.id).map(post => <PostHistory key={post.id} {...post}/>)
+                }
 
             </div>
 

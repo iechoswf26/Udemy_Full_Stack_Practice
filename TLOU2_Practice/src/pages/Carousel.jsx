@@ -77,25 +77,39 @@ function useTilt(animationDuration = '150ms') {
     return ref;
 }
 
-export const Slide = ({ image, title, description, question, offset, isPageBackground }) => {
+export const Slide = ({ id, image, title, description, question, offset, isPageBackground }) => {
     const active = offset === 0,
         ref = useTilt(active);
 
     const navigate = useNavigate()
 
-    const card = useContext(CardContext)
+    const context = useContext(CardContext)
+    if (!context) {
+        throw Error("Outside of provider!")
+    }
+
+    const {setNewCard} = context
+
+    const slideObject = {
+        id, image, title, description, question, offset, isPageBackground
+    }
+
+    const handleClick = () => {
+        setNewCard(slideObject)
+        navigate("/Form")
+    }
 
     return (
         <div
             ref={ref}
-            className="slide"
+            className="slide hover:cursor-pointer"
             data-active={active}
             style={{
                 '--offset': offset,
                 '--dir': offset === 0 ? 0 : offset > 0 ? 1 : -1,
             }}
 
-            onClick={(card) => navigate("/Form")}
+            onClick={handleClick}
         >
             {isPageBackground && (
                 <div
@@ -135,6 +149,7 @@ export const Slide = ({ image, title, description, question, offset, isPageBackg
 };
 
 Slide.propTypes = {
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string,
     description: PropTypes.string,
@@ -170,11 +185,12 @@ const Carousel = ({ slides, isPageBackground }) => {
 
                             if (typeof slide === 'string') {
                                 return (
-                                    <Slide image={slide} offset={offset} isPageBackground={isPageBackground} key={i} />
+                                    <Slide id={slide.id} image={slide} offset={offset} isPageBackground={isPageBackground} key={i} />
                                 );
                             } else {
                                 return (
                                     <Slide
+                                        id={slide.id}
                                         image={slide.image}
                                         title={slide.title}
                                         description={slide.description}

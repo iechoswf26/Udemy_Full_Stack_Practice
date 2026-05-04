@@ -1,9 +1,8 @@
 const Navbar = () => {
     return (
         <ul>
-            <li><a href="/LandingPage">LandingPage</a></li>
-            <li><a href="/Carousel">Carousel</a></li>
-            <li><a href="/Form">Form</a></li>
+            <li><a href="/">LandingPage</a></li>
+            <li><a href="/Chapters">Chapters</a></li>
         </ul>
     )
 }
