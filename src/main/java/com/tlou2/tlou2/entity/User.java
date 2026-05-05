@@ -32,8 +32,8 @@ public class User {
     @Column(nullable = false, columnDefinition = "DATE")// DOB constraint
     private LocalDate birthDate;
 
-    @OneToMany(mappedBy = "user")
-    private List<Post> posts;
+    @OneToMany(mappedBy = "user") // One User to Many Posts
+    private List<Post> posts; // Every User object holds reference to a list of many Post objects.
 
     // Create empty constructor for User.
     public User() {

@@ -33,7 +33,7 @@ public class Checkpoint {
 
     @ManyToOne //Many Checkpoints to One Chapter
     @JoinColumn(name = "chapter_id")
-    private Chapter chapter;
+    private Chapter chapter; // Every Chapter object holds reference to many Checkpoint objects.
 
     @OneToMany (mappedBy = "checkpoint") // One Checkpoint to Many Posts
     private List<Post> posts;

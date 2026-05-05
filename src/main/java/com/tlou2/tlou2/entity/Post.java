@@ -24,7 +24,7 @@ public class Post {
 
     @ManyToOne // Many Posts to One User
     @JoinColumn(name = "user_id") // Foreign key in post table.
-    private User user;
+    private User user; // Every User objects holds reference to list of many Post objects.
 
     @ManyToOne // Many Posts to One Checkpoint
     @JoinColumn(name = "checkpoint_id") // Foreign key in post table.
