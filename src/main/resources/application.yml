@@ -1,0 +1,21 @@
+spring: # Root Spring config
+  application: # App identity section
+    name: tlou_two_backend # Name shown in logs/metrics; does not need to match anything.
+
+  datasource: # Database connection settings
+    url: jdbc:postgresql://localhost:5437/tlou_two_chapters # Must match Docker host port + DB name
+    driver-class-name: org.postgresql.Driver # PostgreSQL JDBC driver
+    username: tlou_two # POSTGRES_USER from docker-compose
+    password: tloutwopass # POSTGRES_PASSWORD from docker-compose
+
+  flyway: # Database migrations
+    enabled: true # Turn migrations on
+    locations: classpath:db/migration # Where migration files live
+
+  jpa: # ORM behavior (Hibernate)
+    show-sql: true # Mirrors todo app in class
+    hibernate: # Hibernate-specific settings
+      ddl-auto: update # Let Flyway control schema. Indicated "update" based on todo app from class.
+
+server: # Web server settings
+  port: 8080 # Default is often 8080 //Run the server on 8080 (this can be changed to 5000, 8000, etc.)
