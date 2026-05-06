@@ -3,5 +3,7 @@
   <component name="DiffGenerationConfig">
     <option name="snapshotDb" value="false" />
     <option name="snapshotModelValue" value="tlou2.main:tlou2.main" />
+    <option name="sourceModelValue" value="tlou2.main:tlou2.main" />
+    <option name="targetDbValue" value="1262485a-efcb-4958-a8ef-3b241bdb33b0" />
   </component>
 </project>

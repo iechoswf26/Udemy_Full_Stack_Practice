@@ -11,7 +11,7 @@ CREATE TABLE checkpoint
     title       VARCHAR(255)                            NOT NULL,
     description TEXT                                    NOT NULL,
     question    TEXT                                    NOT NULL,
-    image_data  OID                                     NOT NULL,
+    image_data  TEXT                                    NOT NULL,
     chapter_id  BIGINT,
     CONSTRAINT pk_checkpoint PRIMARY KEY (id)
 );
