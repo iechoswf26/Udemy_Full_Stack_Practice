@@ -5,13 +5,19 @@ package com.tlou2.tlou2.service;
 import com.tlou2.tlou2.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
-@Service // @Service: Handles Class as a service Spring bean (dependency).
+@Service // @Service: Instantiate PostService and make it available for dependency injection elsewhere.
 public class PostService {
 
-    private final PostRepository postRepository; // Call the mock postRepository.
+    private final PostRepository postRepository; // Declares that PostService depends on PostRepository.
 
+    public PostService(PostRepository postRepository) {
 
-    public PostService(PostRepository postRepository) { // Pass
+    /* Spring performs dependency injection.
+    (1) Spring creates PostRepository bean.
+    (2) Spring creates PostService bean.
+    (3) Spring passes repository into constructor.
+    Summary: PostService receives repository.
+     */
         this.postRepository = postRepository;
     }
 
