@@ -1,5 +1,3 @@
-#version: "3.8" This was the Docker Compose file format version, but I commented it out because Chatgpt said it's not used anymore.
-
 services: # Top-level section that defines all containers (services)
   # that make up this environment.
 
@@ -46,7 +44,8 @@ services: # Top-level section that defines all containers (services)
 
     ports: # Defines port mappings between host and container.
 
-      - "5437:5432"                # Maps host port 5437 → container port 5432.
+      - "5437:5432"
+      # Maps host port 5437 → container port 5432.
       # 5432 is PostgreSQL's default internal port.
       # 5437 avoids conflicts with local installations. Changed to 5438 because that port is already used on my computer.
 
@@ -59,8 +58,10 @@ services: # Top-level section that defines all containers (services)
 
 volumes: # Top-level volume definitions.
 
-  tlou_two_pgdata: # Name of the persistent volume.
+  tlou_two_pgdata:
+    # Name of the persistent volume.
     # Used above in the service definition.
 
-    driver: local                  # Uses Docker's local storage driver.
+    driver: local
+    # Uses Docker's local storage driver.
     # Stores data safely on the host machine.

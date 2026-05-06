@@ -1,0 +1,11 @@
+spring: # Root Spring config
+  flyway:
+    enabled: false
+  application: # App identity section
+    name: tlou_two_backend # Name shown in logs/metrics; does not need to match anything.
+
+  jpa: # ORM behavior (Hibernate)
+    show-sql: true # Mirrors todo app in class
+    hibernate: # Hibernate-specific settings
+      ddl-auto: update # Let Flyway control schema. Indicated "update" based on todo app from class.
+    database-platform: org.hibernate.dialect.H2Dialect

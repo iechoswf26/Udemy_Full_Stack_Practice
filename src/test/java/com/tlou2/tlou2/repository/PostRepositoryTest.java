@@ -1,22 +1,23 @@
 /* Package name is required and is explicitly declared at the top of the Java file.
 Uses reverse domain name: com.yourcompany.project.module. */
-package com.tlou2.tlou2.RepositoryTest;
+package com.tlou2.tlou2.repository;
 
-import com.tlou2.tlou2.Entity.Checkpoint;
-import com.tlou2.tlou2.Entity.Post;
-import com.tlou2.tlou2.Entity.User;
-import com.tlou2.tlou2.Repository.PostRepository;
+import com.tlou2.tlou2.entity.Checkpoint;
+import com.tlou2.tlou2.entity.Post;
+import com.tlou2.tlou2.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
+
 import java.time.LocalDateTime;
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DataJpaTest
-// DataJpaTest: Testing annotations that loads minimal application context with only JPA entities, Spring Data JPA repositories, and an embedded database.
+@DataJpaTest // DataJpaTest: Testing annotations that loads minimal application context with only JPA entities, Spring Data JPA repositories, and an embedded database.
+@ActiveProfiles("test")
+// ActiveProfiles: When running test, use test configuration, not development (dev) or production (prod). SPring will load application.yml and load and apply application-test.yml (overriding where needed).
 public class PostRepositoryTest {
 
     @Autowired // Spring auto-injects required dependencies (beans) at runtime.
@@ -27,10 +28,8 @@ public class PostRepositoryTest {
         // Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
 
         User testUser = new User();
-        testUser.setId(1L);
 
         Checkpoint testCheckpoint = new Checkpoint();
-        testCheckpoint.setId(1L);
 
         Post newPost = new Post( // Parameters and arguments should align with the attributes of the Post Entity.
                 "Joel and Tommy shouldn't have saved Abby.",
@@ -41,7 +40,7 @@ public class PostRepositoryTest {
 
         // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
         Post savedNewPost = postRepository.save(newPost); // Save a new post in the postRepository.
-        Optional<Post> result = postRepository.findById(savedNewPost.getId()); // If there is a post, find it by referring to the post ID.
+        Optional<Post> result = postRepository.findById(savedNewPost.getId()); // If there is a post, find it by referring to the saved post ID.
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
         assertEquals("Joel and Tommy shouldn't have saved Abby.", result.get().getPost()); // Expectation: Get the post that matches the "fake" post listed above.

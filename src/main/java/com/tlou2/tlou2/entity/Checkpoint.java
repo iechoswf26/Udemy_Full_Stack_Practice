@@ -1,7 +1,7 @@
 /*
 Package name is required and is explicitly declared at the top of the Java file. Uses reverse domain name: com.yourcompany.project.module.
  */
-package com.tlou2.tlou2.Entity;
+package com.tlou2.tlou2.entity;
 
 // Required for all JPA annotations (@Entity, @Table, @Id, etc.)
 import jakarta.persistence.*;
@@ -10,8 +10,8 @@ import java.util.List;
 
 
 // Annotations
-@Entity // Marks class as JPA Entity
 @Table(name = "checkpoint") // JPA - Specifies database table name. "User" is a keyword and therefore is invalid syntax. Change to "users."
+@Entity // Marks class as JPA Entity
 public class Checkpoint {
     @Id // Field: id. Purpose: Marks field as primary key of table.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tells database to auto-generate ID (auto-increment column).
