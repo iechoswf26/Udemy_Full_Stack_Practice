@@ -17,7 +17,7 @@ public class UserService {
         (1) Spring creates PostRepository bean.
         (2) Spring creates PostService bean.
         (3) Spring passes repository into constructor.
-        Summary: Create a constructor indicating that PostService receives repository.
+        Summary: Create a constructor indicating that UserService receives repository.
         */
         this.userRepository = userRepository;
     }

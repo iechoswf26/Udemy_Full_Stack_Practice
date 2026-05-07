@@ -1,11 +1,11 @@
 spring: # Root Spring config
   flyway:
-    enabled: false
+    enabled: false #Disables Flyway migrations during tests. Why? - Test database will NOT run migration scripts. So tables/data defined in Flyway won't exist unless something else creates them. This shifts responsibility to Hibernate.
   application: # App identity section
     name: tlou_two_backend # Name shown in logs/metrics; does not need to match anything.
 
   jpa: # ORM behavior (Hibernate)
-    show-sql: true # Mirrors todo app in class
-    hibernate: # Hibernate-specific settings
-      ddl-auto: update # Let Flyway control schema. Indicated "update" based on todo app from class.
-    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true # Prints SQL queries in console during tests. Debugs what Hibernate is doing.
+    hibernate: # Hibernate-specific settings.
+      ddl-auto: update # Hibernate will auto create/update database tables based on entities. Do this at runtime when tests start. Since Flyway is disabled, Hibernate becomes your schema manager in tests. (Your Entities -> Hibernate -> creates tables in test DB).
+    database-platform: org.hibernate.dialect.H2Dialect #Use H2 database syntax (implication: tests are using an H2 in-memory database, not PostgreSQL).

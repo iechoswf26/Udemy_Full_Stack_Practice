@@ -15,7 +15,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DataJpaTest // DataJpaTest: Testing annotations that loads minimal application context with only JPA entities, Spring Data JPA repositories, and an embedded database.
+@DataJpaTest // DataJpaTest: Tests Repository/Database layer of Spring boot app..
 @ActiveProfiles("test")
 /* ActiveProfiles: When running test, use test configuration, not development (dev) or production (prod).
 Spring will load application.yml and load and apply application-test.yml (overriding where needed).
