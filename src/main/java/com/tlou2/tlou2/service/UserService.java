@@ -25,4 +25,16 @@ public class UserService {
     public User saveUser(User user) { // Save User entity by passing User object to the repository.
         return userRepository.save(user); // Tell the userRepository to save the user.
     }
+
+    public User findUserById(Long id) { // Find user ID by Long ID.
+        return userRepository.findById(id).orElseThrow(); // Tell userRepository to find the ID.
+    }
+
+    public void deleteUserById(Long id) {
+        try {
+            userRepository.deleteById(id); // Return "deleted."
+        } catch (IllegalArgumentException e) { // Return "not found."
+
+        }
+    }
 }

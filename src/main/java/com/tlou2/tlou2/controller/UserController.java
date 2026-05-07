@@ -5,6 +5,7 @@ package com.tlou2.tlou2.controller;
 import com.tlou2.tlou2.entity.User;
 import com.tlou2.tlou2.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // @RestController: Processes incoming HTTP requests and returns data objects (rather than views).
@@ -28,6 +29,16 @@ public class UserController {
         @RequestBody User user: Converts JSON from request body into User object.
          */
         return userService.saveUser(user); // Calls saveUser() method on UserService.
+    }
+
+    @GetMapping("/{id}") // @GetMapping: Maps HTTP GET requests to this method (used to retrieve data).
+    public ResponseEntity<User> findUserById(@PathVariable Long id) { // PathVariable extraction: Spring auto pulls 1 from the URL, converts it to Long, passes it into method.
+        try {
+            User user = userService.findUserById(id); // Controller calls service to fetch data.
+            return ResponseEntity.ok(user); // Success path (user found): (1) HTTP Status: 200 OK. (2) Response Body: Controller converts user -> JSON.
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build(); // If the Service throws an exception, (1) HTTP Status: 404 Not Found. (2) Response Body: empty.
+        }
     }
 
 
