@@ -3,13 +3,14 @@ Uses reverse domain name: com.yourcompany.project.module. */
 
 package com.tlou2.tlou2.service;
 
+import com.tlou2.tlou2.entity.User;
 import com.tlou2.tlou2.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-@Service // @Service: Instantiate PostService and make it available for dependency injection elsewhere.
+@Service // @Service: Instantiate UserService and make it available for dependency injection elsewhere.
 public class UserService {
 
-    private final UserRepository userRepository; // Declares that PostService depends on PostRepository.
+    private final UserRepository userRepository; // Declares that UserService depends on UserRepository.
 
     public UserService(UserRepository userRepository) {
         /* Spring performs dependency injection.
@@ -19,5 +20,9 @@ public class UserService {
         Summary: Create a constructor indicating that PostService receives repository.
         */
         this.userRepository = userRepository;
+    }
+
+    public User saveUser(User user) { // Save User entity by passing User object to the repository.
+        return userRepository.save(user); // Tell the userRepository to save the user.
     }
 }
