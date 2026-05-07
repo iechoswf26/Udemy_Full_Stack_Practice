@@ -20,8 +20,8 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -95,6 +95,26 @@ class UserControllerTest {
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
         verify(userService, only()).findUserById(1L); // (Service Interaction): Verify that the controller called userService.findByUserId() exactly once.
+
+    }
+
+    @Test
+    void shouldDeleteTaskById() throws Exception {
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        mockMvc.perform(delete("/api/v1/user/{id}", 4) // Simulates DELETE request to endpoint /api/v1/user/{id}
+                .contentType(MediaType.APPLICATION_JSON)
+                /* Note: For DELETE requests with a body, this is acceptable,
+                 but typically DELETE endpoints don't require a request body.
+                 Consider removing .content() if not needed.
+                 */
+                .content(objectMapper.writeValueAsString(4L)))
+
+                // Result Matchers
+                .andExpect(status().isNoContent()) // (HTTP Status): Checks that HTTP response status 204 (no additional content to send in response content).
+                .andDo(print()); // Print request/response details (useful for debugging).
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(userService, times(1)).deleteUserById(4L); // (Service Interaction): Verify that the controller called userService.deleteUserById() exactly once.
 
     }
 

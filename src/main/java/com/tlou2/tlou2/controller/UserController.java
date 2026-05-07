@@ -41,6 +41,17 @@ public class UserController {
         }
     }
 
+    @DeleteMapping("/{id}") // @DeleteMapping: Maps HTTP DELETE requests to this method.
+    public ResponseEntity<String> deleteUserById(@PathVariable Long id) { // PathVariable extraction: Spring auto pulls 1 from the URL, converts it to Long, passes it into method.
+        try {
+            userService.deleteUserById(id); // Controller calls service to delete data.
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // Success path (404 No Content): (1) HTTP Status: 204 NO CONTENT. (2) Response Body: Standard for successful DELETE with no response body.
+        } catch (IllegalArgumentException e) {
+            // Service throws this when user is not found or ID is invalid.
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // If Service throws exception, (1) HTTP Status: 404 Not Found. (2) Response Body: N/A.
+        }
+    }
+
 
 
 }
