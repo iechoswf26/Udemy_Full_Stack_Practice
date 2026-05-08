@@ -7,6 +7,8 @@ import com.tlou2.tlou2.entity.User;
 import com.tlou2.tlou2.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service // @Service: Instantiate UserService and make it available for dependency injection elsewhere.
 public class UserService {
 
@@ -37,4 +39,15 @@ public class UserService {
 
         }
     }
+
+    public User updateUser(User user) {
+        Optional<User> foundUser = userRepository.findById(user.getId());
+        if (foundUser.isPresent()) {
+            return userRepository.save(user);
+        } else {
+            return null;
+        }
+    }
+
+
 }

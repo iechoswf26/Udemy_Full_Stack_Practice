@@ -118,4 +118,20 @@ class UserControllerTest {
 
     }
 
+    @Test
+    void shouldUpdateAUser() throws Exception {
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        when(userService.updateUser(any(User.class))).thenReturn(userAccount4);
+
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        mockMvc.perform(put("/api/v1/user")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(userAccount4)))
+                .andExpect(status().isOk());
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(userService, times(1)).updateUser(any(User.class));
+
+    }
+
 }

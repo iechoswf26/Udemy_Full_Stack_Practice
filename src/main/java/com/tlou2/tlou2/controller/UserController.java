@@ -52,6 +52,11 @@ public class UserController {
         }
     }
 
+    @PutMapping
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
+        return ResponseEntity.ok(userService.updateUser(user));
+    }
+
 
 
 }
