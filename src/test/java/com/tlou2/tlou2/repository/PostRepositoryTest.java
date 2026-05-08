@@ -15,10 +15,10 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DataJpaTest // DataJpaTest: Testing annotations that loads minimal application context with only JPA entities, Spring Data JPA repositories, and an embedded database.
+@DataJpaTest // DataJpaTest: Tests Repository/Database layer of Spring boot app.
 @ActiveProfiles("test")
 // ActiveProfiles: When running test, use test configuration, not development (dev) or production (prod). SPring will load application.yml and load and apply application-test.yml (overriding where needed).
-public class PostRepositoryTest {
+class PostRepositoryTest {
 
     @Autowired // Spring auto-injects required dependencies (beans) at runtime.
     PostRepository postRepository;
@@ -26,9 +26,7 @@ public class PostRepositoryTest {
     @Test
     void shouldSaveANewPost() {
         // Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
-
         User testUser = new User();
-
         Checkpoint testCheckpoint = new Checkpoint();
 
         Post newPost = new Post( // Parameters and arguments should align with the attributes of the Post Entity.
@@ -44,13 +42,9 @@ public class PostRepositoryTest {
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
         assertEquals("Joel and Tommy shouldn't have saved Abby.", result.get().getPost()); // Expectation: Get the post that matches the "fake" post listed above.
-
         assertThat(result.get().getPostedDateTime()).isEqualTo(newPost.getPostedDateTime()); // Assert/Verify: Repository will use getPostedDateTime method to retrieve the PostedDateTime from the "fake" new post listed above.
-
         assertThat(result.get().getUser()).isEqualTo(newPost.getUser()); // Assert/Verify: Repository will use getUser method to retrieve the User from the "fake" new post listed above.
-
         assertThat(result.get().getCheckpoint()).isEqualTo(newPost.getCheckpoint()); // Assert/Verify: Repository will use getCheckpoint method to retrieve the Checkpoint from the "fake" new post listed above.
-
         assertThat(result.get()).isEqualTo(newPost); // Assert/Verify: Repository will use get method to retrieve the new post from the "fake" new post listed above.
     }
 
