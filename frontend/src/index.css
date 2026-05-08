@@ -4,12 +4,13 @@
     background-image: url('assets/ellie-ferris-wheel-desktop.png');
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: visible;
 }
 
 @media(max-width: 576px) {
     #hero {
         background-image: url('assets/ellie-ferris-wheel-mobile.png');
-        background-position: center center;
+        background-position: center bottom;
     }
 }
 

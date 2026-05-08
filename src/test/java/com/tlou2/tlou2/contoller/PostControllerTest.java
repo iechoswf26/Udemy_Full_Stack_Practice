@@ -139,6 +139,22 @@ class PostControllerTest {
         verify(postService).updatePost(any(Post.class));
     }
 
+    @Test
+    void shouldDeleteExistingPost() throws Exception {
+        //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
+        doNothing().when(postService).deletePostById(post2.getId());
+
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        mockMvc.perform(delete("/api/v1/post")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(post2.getId())))
+                .andExpect(status().isOk());
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(postService).deletePostById(post2.getId());
+
+    }
+
 
 
 }

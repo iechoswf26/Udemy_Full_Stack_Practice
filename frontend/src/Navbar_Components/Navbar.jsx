@@ -2,10 +2,10 @@ const Navbar = () => {
     return (
         <div>
         {/*    Hero Section*/}
-            <section id="hero">
+            <section id="hero" className="w-screen h-screen">
 
                 {/*    Hero Container*/}
-                <div className="container max-w-6xl mx-auto px-6 py-12">
+                <div className="container max-w-6xl mx-auto px-6 py-12 h-1/10">
 
                 {/*    Menu/Logo Container*/}
                     <nav className="flex flex-row items-center justify-between font-heading text-[#253225]">

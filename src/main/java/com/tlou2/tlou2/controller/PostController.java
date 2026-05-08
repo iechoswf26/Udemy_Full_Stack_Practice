@@ -39,7 +39,14 @@ public class PostController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public Post shouldUpdatePost(@RequestBody Post post) {
+    public Post updatePost(@RequestBody Post post) {
         return postService.updatePost(post);
     }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteExistingPost(@RequestBody Long id) {
+        postService.deletePostById(id);
+    }
+
 }

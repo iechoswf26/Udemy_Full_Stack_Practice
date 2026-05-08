@@ -45,6 +45,7 @@ class PostServiceTest {
     Chapter testChapter;
     Post post1;
     Post post2;
+    Post deletedPost;
 
     // Create an array that will hold multiple Post objects during tests.
     List<Post> posts = new ArrayList<>();
@@ -87,6 +88,13 @@ class PostServiceTest {
         post2.setId(2L);
 
         posts = new ArrayList<>(List.of(post1, post2));
+
+        deletedPost = new Post (
+                "Joel and Tommy should've known better than to stay with a group a strangers.",
+                LocalDateTime.of(2026, 2, 26, 22, 30, 0),
+                testUser,
+                testCheckpoint
+        );
     }
 
     @Test
@@ -137,6 +145,22 @@ class PostServiceTest {
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
         verify(postRepository, times(1)).findById(anyLong());
         verify(postRepository, times(1)).save(any(Post.class));
+
+    }
+
+    @Test
+    void shouldDeleteExistingPost() {
+        //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
+        deletedPost.setId(1L);
+        when(postRepository.findById(deletedPost.getId())).thenReturn(Optional.of(deletedPost));
+        doNothing().when(postRepository).deleteById(deletedPost.getId());
+
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        postService.deletePostById(deletedPost.getId());
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(postRepository, times(1)).findById(anyLong());
+        verify(postRepository, times(1)).deleteById(anyLong());
 
     }
 

@@ -44,4 +44,11 @@ public class PostService {
 
     }
 
+    public void deletePostById (Long id) {
+        Optional<Post> foundPost = postRepository.findById(id);
+        if (foundPost.isPresent()) {
+            postRepository.deleteById(id);
+        }
+    }
+
 }
