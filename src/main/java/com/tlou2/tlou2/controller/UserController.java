@@ -41,6 +41,11 @@ public class UserController {
         }
     }
 
+    @PutMapping
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
+        return ResponseEntity.ok(userService.updateUser(user));
+    }
+
     @DeleteMapping("/{id}") // @DeleteMapping: Maps HTTP DELETE requests to this method.
     public ResponseEntity<String> deleteUserById(@PathVariable Long id) { // PathVariable extraction: Spring auto pulls 1 from the URL, converts it to Long, passes it into method.
         try {
@@ -50,11 +55,6 @@ public class UserController {
             // Service throws this when user is not found or ID is invalid.
             return new ResponseEntity<>(HttpStatus.NOT_FOUND); // If Service throws exception, (1) HTTP Status: 404 Not Found. (2) Response Body: N/A.
         }
-    }
-
-    @PutMapping
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
-        return ResponseEntity.ok(userService.updateUser(user));
     }
 
 
