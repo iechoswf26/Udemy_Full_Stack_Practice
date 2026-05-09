@@ -99,6 +99,22 @@ class UserControllerTest {
     }
 
     @Test
+    void shouldUpdateAUser() throws Exception {
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        when(userService.updateUser(any(User.class))).thenReturn(userAccount4); // When the updateUser(any(User.class)) is used on the userService, return userAccount4 as an updated user.
+
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        mockMvc.perform(put("/api/v1/user") // Simulates PUT request to endpoint /api/v1/user.
+                        .contentType(MediaType.APPLICATION_JSON) // Content-Type: header of HTTP request. Actual value: "application/json." Meaning: Send request in JSON format.
+                        .content(objectMapper.writeValueAsString(userAccount4))) // Sends data (request body). objectMapper: converts Java objects to JSON. writeValueAsString(someObject): converts Java object into JSON string. .content(...): Adds JSON string as body of HTTP request.
+                .andExpect(status().isOk()); // (HTTP Status): Standard HTTP response status for successful HTTP requests.
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(userService, times(1)).updateUser(any(User.class)); // Verify that the userService is called once using the updateUser(any(User.class)) method.
+
+    }
+
+    @Test
     void shouldDeleteTaskById() throws Exception {
         // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
         mockMvc.perform(delete("/api/v1/user/{id}", 4) // Simulates DELETE request to endpoint /api/v1/user/{id}
@@ -118,20 +134,6 @@ class UserControllerTest {
 
     }
 
-    @Test
-    void shouldUpdateAUser() throws Exception {
-        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        when(userService.updateUser(any(User.class))).thenReturn(userAccount4);
 
-        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        mockMvc.perform(put("/api/v1/user")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(userAccount4)))
-                .andExpect(status().isOk());
-
-        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
-        verify(userService, times(1)).updateUser(any(User.class));
-
-    }
 
 }

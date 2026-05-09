@@ -3,7 +3,6 @@ Uses reverse domain name: com.yourcompany.project.module. */
 
 
 import com.tlou2.tlou2.entity.Post;
-import com.tlou2.tlou2.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

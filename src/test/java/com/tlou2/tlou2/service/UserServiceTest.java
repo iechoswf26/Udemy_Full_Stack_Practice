@@ -85,6 +85,21 @@ class UserServiceTest {
     }
 
     @Test
+    void shouldUpdateAUser() {
+        //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
+        when(userRepository.findById(anyLong())).thenReturn(Optional.of(userAccount1)); // When the findById(anyLong()) method is called on the userRepository, then return userAccount1 if it exists.
+        when(userRepository.save(userAccount1)).thenReturn(userAccount1); // When the save() method is used on the userRepository, then save userAccount1.
+
+        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
+        User result = userService.updateUser(userAccount1); // Calls the updateUser() method on userService, passing userAccount1 as input and stores returned value in variable called result.
+
+        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
+        verify(userRepository, times(1)).findById(anyLong()); // Verifies that the userRepository was called once using the findById() method for any Long value.
+        verify(userRepository, times(1)).save(userAccount1); // Verifies that the userRepository was called once using the save() method for userAccount1.
+
+    }
+
+    @Test
     void shouldDeleteExistingUser() {
         //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
         doNothing().when(userRepository).deleteById(deleteUser.getId()); // "When deleteById(id) is called, do not do anything (and don't throw errors)."
@@ -96,18 +111,5 @@ class UserServiceTest {
         verify(userRepository, times(1)).deleteById(deleteUser.getId()); // userRepository was called exactly once with the correct ID.
     }
 
-    @Test
-    void shouldUpdateAUser() {
-        //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
-        when(userRepository.findById(anyLong())).thenReturn(Optional.of(userAccount1));
-        when(userRepository.save(userAccount1)).thenReturn(userAccount1);
-
-        // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        User result = userService.updateUser(userAccount1);
-        // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
-        verify(userRepository, times(1)).findById(anyLong());
-        verify(userRepository, times(1)).save(userAccount1);
-
-    }
 
 }

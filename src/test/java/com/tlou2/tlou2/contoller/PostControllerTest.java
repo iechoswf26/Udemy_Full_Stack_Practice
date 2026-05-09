@@ -110,48 +110,48 @@ class PostControllerTest {
     @Test
     void shouldFindAllPostsByCheckpointId() throws Exception {
         //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
-        when(postService.findAllPostsByCheckpointId(anyLong())).thenReturn(posts);
+        when(postService.findAllPostsByCheckpointId(anyLong())).thenReturn(posts); // When the postService uses findAllPostsByCheckpointId using any ID, then return posts.
 
         // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        mockMvc.perform(get("/api/v1/post/checkpoint/id/")
-                        .param("id", Long.toString(1L))
-                        .content(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().is2xxSuccessful())
-                .andExpect(jsonPath("$.size()").value(posts.size()));
+        mockMvc.perform(get("/api/v1/post/checkpoint/id/") // Simulates GET request to endpoint /api/v1/post/checkpoint/id/.
+                        .param("id", Long.toString(1L)) // Adds request parameter id=1 to URL. Equivalent to calling GET /api/v1/post/checkpoint/id/?id=1.
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)) // Content-Type header of HTTP request. Actual value is "application/json." Simpler words: Send request in JSON format.
+                .andExpect(status().is2xxSuccessful()) // Checks that the HTTP response status is in the 2xx range (e.g. 200 OK).
+                .andExpect(jsonPath("$.size()").value(posts.size())); // Checks the JSON response body. $.size() means "size of root JSON array" should equal number of posts in posts list.
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
-        verify(postService).findAllPostsByCheckpointId(anyLong());
+        verify(postService).findAllPostsByCheckpointId(anyLong()); //Verifies that the postService.findAllPostsByCheckpointId() method was called at least once with any Long value.
 
     }
 
     @Test
     void shouldUpdateAPost () throws Exception {
         //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
-        when(postService.updatePost(post2)).thenReturn(post2);
+        when(postService.updatePost(post2)).thenReturn(post2); // When the postService uses updatePost() method to update post2, return post2.
 
         // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        mockMvc.perform(put("/api/v1/post")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(post2)))
-                .andExpect(status().isOk());
+        mockMvc.perform(put("/api/v1/post") // Simulates PUT request to endpoint /api/v1/post."
+                .contentType(MediaType.APPLICATION_JSON) // Content-Type: header of HTTP request. Actual value: "application/json." Meaning: Send request in JSON format.
+                .content(objectMapper.writeValueAsString(post2))) // Sends data (request body). objectMapper: converts Java objects to JSON. writeValueAsString(someObject): converts Java object into JSON string. .content(...): Adds JSON string as body of HTTP request.
+                .andExpect(status().isOk()); // (HTTP Status): Standard HTTP response status for successful HTTP requests.
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
-        verify(postService).updatePost(any(Post.class));
+        verify(postService).updatePost(any(Post.class)); // Verify that the postService updates any post using updatePost() method.
     }
 
     @Test
     void shouldDeleteExistingPost() throws Exception {
         //Arrange - Meaning: Setup/prep test data. What you do here: Create objects, set initial values.
-        doNothing().when(postService).deletePostById(post2.getId());
+        doNothing().when(postService).deletePostById(post2.getId()); // "When deletePostById() is called on PostService with post2's ID, do nothing."
 
         // Act - Meaning: Execute the action you want to test. What you do here: Call the method (e.g. findById()).
-        mockMvc.perform(delete("/api/v1/post")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(post2.getId())))
-                .andExpect(status().isOk());
+        mockMvc.perform(delete("/api/v1/post") // Simulates DELTE request to endpoint /api/v1/post.
+                .contentType(MediaType.APPLICATION_JSON) // Content-Type: header of HTTP request. Actual value: "application/json." Meaning: Send request in JSON format.
+                .content(objectMapper.writeValueAsString(post2.getId()))) // Sends data (request body). objectMapper: converts Java object to JSON. writeValueAsString(): converts Java object into JSON string. .content(...): Adds JSON string as body of HTTP request.
+                .andExpect(status().isOk()); // (HTTP Status): Standard HTTP response status for successful HTTP requests.
 
         // Assert - Meaning: Verify the result is correct. What you do here: Check if the output matches expectations.
-        verify(postService).deletePostById(post2.getId());
+        verify(postService).deletePostById(post2.getId()); // Verify that the postService uses the deletePostById() method to identify post2 by its ID for deletion.
 
     }
 

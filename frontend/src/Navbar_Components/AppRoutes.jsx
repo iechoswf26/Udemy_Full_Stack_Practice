@@ -1,6 +1,6 @@
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import Form from "../pages/Form.jsx";
-import LandingPage from "../pages/LandingPage.jsx";
+import LandingPage from "../pages/LandingPage.jsx"
 import Chapter from "../pages/Chapter.jsx";
 
 export default function AppRoutes () {
