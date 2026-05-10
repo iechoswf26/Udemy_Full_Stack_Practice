@@ -14,4 +14,6 @@ public interface PostRepository extends JpaRepository<Post, Long> { //JpaReposit
     List<Post> findAllByCheckpointId (Long checkpoint_id);
 
     List<Post> id(Long id);
+
+
 }

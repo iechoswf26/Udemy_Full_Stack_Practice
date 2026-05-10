@@ -1,7 +1,7 @@
-import Navbar from "../src/Navbar_Components/Navbar.jsx";
+import NavbarHome from "./Navbar_Components/NavbarHome.jsx";
 import {BrowserRouter as Router} from "react-router-dom";
 import AppRoutes from "../src/Navbar_Components/AppRoutes.jsx";
-import {CheckpointContext} from './Context/CheckpointContext.jsx'
+import {CheckpointContext} from './context/CheckpointContext.jsx'
 
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
   return (
       <CheckpointContext>
           <Router>
-              <Navbar/>
+              {/*<NavbarHome/>*/}
               <AppRoutes/>
           </Router>
       </CheckpointContext>

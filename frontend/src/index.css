@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
+#navbarOther {
+    background-image: url('assets/TLOU2_Infection_Spreading.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
 #hero {
-    background-image: url('assets/Screenshot 2026-05-08 at 4.10.38 PM.png');
+    background-image: url('assets/TLOU2_Infection_Spreading.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: visible;
 }
 
-@media(max-width: 576px) {
-    #hero {
-        background-image: url('assets/ellie-ferris-wheel-mobile.png');
-        background-position: center;
-    }
-}
+
+/* Start: Rest of CSS */
 
 /* Root sizing */
 /*html,*/

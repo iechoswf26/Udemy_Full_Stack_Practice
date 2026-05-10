@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-icons";
 import {useNavigate} from "react-router";
-import {CardContext} from "../Context/CheckpointContext.jsx";
+import {CardContext} from "../context/CheckpointContext.jsx";
 
 
 function useTilt(animationDuration = '150ms') {
