@@ -1,5 +1,3 @@
-// Purpose: Define createContext(), Provider component, and any state/reducer logic.
-
 import React, {useState, createContext, useEffect} from 'react';
 
 export const CardContext = createContext()

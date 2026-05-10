@@ -10,7 +10,6 @@ const PostHistory = ({id, checkpointId, username, post, date, time}) => {
 
                 <div className="flex justify-between">
                     <p className="text-xl">{username}</p>
-                    <FontAwesomeIcon icon={faRectangleXmark} className="text-[#2F3E2F] hover:text-[#733c26] transition fa-2xl" />
                 </div>
 
                 <p className="p-2 px-4 h-25 border border-[#7C857C] rounded-xl bg-[#6E7C7A] text-start text-[#E7E3DA] text-lg placeholder:text-[#D4CFC4] focus:outline-none">{post}</p>

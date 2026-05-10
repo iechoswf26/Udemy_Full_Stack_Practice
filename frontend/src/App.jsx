@@ -1,6 +1,6 @@
-import NavbarHome from "./Navbar_Components/NavbarHome.jsx";
+import NavbarHome from "./navbar_components/NavbarHome.jsx";
 import {BrowserRouter as Router} from "react-router-dom";
-import AppRoutes from "../src/Navbar_Components/AppRoutes.jsx";
+import AppRoutes from "./navbar_components/AppRoutes.jsx";
 import {CheckpointContext} from './context/CheckpointContext.jsx'
 
 

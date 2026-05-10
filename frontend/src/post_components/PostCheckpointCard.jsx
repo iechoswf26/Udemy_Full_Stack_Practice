@@ -1,6 +1,6 @@
 
 
-const FormCheckpointCard = (slide) => {
+const PostCheckpointCard = (slide) => {
     return (
     //     Card
     <div key={slide.id} className="bg-[#8C978C] p-2 mx-6 mb-10 rounded-2xl">
@@ -31,4 +31,4 @@ const FormCheckpointCard = (slide) => {
     )
 }
 
-export default FormCheckpointCard;
+export default PostCheckpointCard;

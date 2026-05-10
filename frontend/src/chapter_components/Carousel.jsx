@@ -121,7 +121,7 @@ export const Slide = ({ id, image, title, description, question, offset, isPageB
             )}
             <div
                 ref={ref}
-                className="slideContent"
+                className="slideContent shadow-lg shadow-white"
                 style={{
                     backgroundImage: `url('${image}')`,
                 }}

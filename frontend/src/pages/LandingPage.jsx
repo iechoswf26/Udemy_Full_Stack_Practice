@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router";
-import NavbarHome from "../Navbar_Components/NavbarHome.jsx";
+import NavbarHome from "../navbar_components/NavbarHome.jsx";
 
 const LandingPage = () => {
 
@@ -16,7 +16,8 @@ const LandingPage = () => {
                         <p className="text-3xl font-semibold font-body text-shadow-lg/100 py-10">Every Choice Leaves A Mark</p>
 
                         <div className="flex justify-center space-x-10">
-                            <button className="p-2 px-20 py-3 border-3 rounded-xl bg-black text-white text-2xl font-body hover:font-bold hover:text-black hover:bg-white/60">Login</button>
+                            <button className="p-2 px-20 py-3 border-3 rounded-xl bg-black text-white text-2xl font-body hover:font-bold hover:text-black hover:bg-white/60">Sign Up</button>
+
                             <button onClick={() => navigate("/Chapters")} className="p-2 px-20 py-3 border-3 rounded-xl bg-black text-white text-2xl font-body hover:font-bold hover:text-black hover:bg-white/60">Chapters</button>
                         </div>
                     </div>

@@ -1,10 +1,10 @@
-import FormCheckpointCard from "../Form_Components/FormCheckpointCard.jsx";
-import NewPost from "../Form_Components/NewPost.jsx";
-import PostHistory from "../Form_Components/PostHistory.jsx";
+import PostCheckpointCard from "../post_components/PostCheckpointCard.jsx";
+import NewPost from "../post_components/NewPost.jsx";
+import PostHistory from "../post_components/PostHistory.jsx";
 import React, {useContext} from 'react';
 import {CardContext} from "../context/CheckpointContext.jsx";
 import postHistory from "../data/postHistory.js";
-import NavbarOther from "../Navbar_Components/NavbarOther.jsx";
+import NavbarOther from "../navbar_components/NavbarOther.jsx";
 
 const Form = () => {
 
@@ -32,9 +32,9 @@ const Form = () => {
                 <div className="flex flex-col items-center w-3/4 h-auto mt-1 pt-6 bg-[#D4CFC4] rounded-lg shadow-lg">
 
 
-                    {/* FormCheckpointCard */}
+                    {/* PostCheckpointCard */}
 
-                    <FormCheckpointCard key={card.id} {...card}/>
+                    <PostCheckpointCard key={card.id} {...card}/>
 
 
                     {/*    New Post */}

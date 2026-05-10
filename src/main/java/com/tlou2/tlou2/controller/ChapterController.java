@@ -5,15 +5,13 @@ package com.tlou2.tlou2.controller;
 import com.tlou2.tlou2.entity.Chapter;
 import com.tlou2.tlou2.service.ChapterService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController// @RestController: Processes incoming HTTP requests and returns data objects (rather than views).
 @RequestMapping("/api/v1/chapter")
+@CrossOrigin(origins = "http://localhost:3000")
 /* @RequestMapping:
 - Map HTTP requests.
 - Routes client requests to appropriate business logic.
