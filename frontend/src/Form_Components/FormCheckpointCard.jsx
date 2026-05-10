@@ -1,4 +1,4 @@
-import mothAndFern from '../assets/TLOU2_Moth_and_Fern.png'
+
 
 const FormCheckpointCard = (slide) => {
     return (

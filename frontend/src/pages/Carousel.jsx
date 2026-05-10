@@ -126,19 +126,19 @@ export const Slide = ({ id, image, title, description, question, offset, isPageB
                     backgroundImage: `url('${image}')`,
                 }}
             >
-                <div className="slideContentInner">
+                <div className="slideContentInner p-10">
                     {title && (
-                        <h2 className="slideTitle" dir="auto">
+                        <h2 className="slideTitle font-heading text-2xl py-4" dir="auto">
                             {title}
                         </h2>
                     )}
-                    {description && (
-                        <h3 className="slideDescription" dir="auto">
-                            {description}
-                        </h3>
-                    )}
+                    {/*{description && (*/}
+                    {/*    <h3 className="slideDescription font-body text-shadow-white" dir="auto">*/}
+                    {/*        {description}*/}
+                    {/*    </h3>*/}
+                    {/*)}*/}
                     {question && (
-                        <p className="slideQuestion" dir="auto">
+                        <p className="slideQuestion font-body text-xl" dir="auto">
                             {question}
                         </p>
                     )}
@@ -170,11 +170,10 @@ const Carousel = ({ slides, isPageBackground }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center mt-20">
-            <h1>Chapter 1</h1>
-            <div className="flex flex-row justify-center mt-12">
+        <div>
+            <div className="flex flex-row justify-center my-12">
                 <button onClick={handlePrevSlide} >
-                    <FontAwesomeIcon icon={faAngleLeft} className="text-2xl"/>
+                    <FontAwesomeIcon icon={faAngleLeft} className="text-6xl text-white font-bold"/>
                 </button>
 
                 <section className="slidesWrapper">
@@ -206,7 +205,7 @@ const Carousel = ({ slides, isPageBackground }) => {
                     </div>
                 </section>
                 <button onClick={handleNextSlide} >
-                    <FontAwesomeIcon icon={faAngleRight} className="text-3xl" />
+                    <FontAwesomeIcon icon={faAngleRight} className="text-6xl text-white font-bold" />
                 </button>
             </div>
         </div>
