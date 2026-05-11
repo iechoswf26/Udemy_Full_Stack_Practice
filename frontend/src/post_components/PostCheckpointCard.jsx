@@ -17,10 +17,10 @@ const PostCheckpointCard = (slide) => {
             </div>
 
             {/* Content*/}
-            <div className="flex flex-col items-center justify-center space-y-6 my-4">
+            <div className="flex flex-col items-center justify-center space-y-6 my-6">
                 <h2 className="font-heading font-bold text-4xl text-black">{slide.title}</h2>
-                <p className="max-w-4xl font-body font-medium text-xl leading-6 tracking-normal text-justify text-black">{slide.description}</p>
-                <p className="max-w-4xl font-body font-medium text-xl leading-6 tracking-normal text-justify text-black">{slide.question}</p>
+                <p className="max-w-3xl font-body font-medium text-xl leading-6 tracking-normal text-justify text-black">{slide.description}</p>
+                <p className="max-w-3xl font-body font-medium text-xl leading-6 tracking-normal text-justify text-black">{slide.question}</p>
 
             </div>
 
