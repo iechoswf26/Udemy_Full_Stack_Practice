@@ -13,7 +13,7 @@ const DeleteAccountModal = () => {
 
                 {/* Previous Username */}
                 <div>
-                    <p className="font-body text-xl">Are you sure you want to delete your account? Deleting your account will remove all associated data.</p>
+                    <p className="font-body text-xl">Are you sure you want to delete your account? Deleting your account will remove all data.</p>
                 </div>
 
                 {/* Bottom Buttons Container */}

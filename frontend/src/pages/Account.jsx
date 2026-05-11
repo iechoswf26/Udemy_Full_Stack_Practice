@@ -1,14 +1,13 @@
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 import React from "react";
 import DeleteAccountModal from "../account_components/DeleteAccountModal.jsx";
-import EditUsernameModal from "../account_components/EditUsernameModal.jsx";
 
 const Account = () => {
     return (
         <div>
             <NavbarOther/>
 
-            <EditUsernameModal/>
+            <DeleteAccountModal/>
 
             <div className="flex flex-col my-20 mx-80">
 
