@@ -5,6 +5,8 @@ import React, {useContext} from 'react';
 import {CardContext} from "../context/CheckpointContext.jsx";
 import postHistory from "../data/postHistory.js";
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
+import DeletePostModal from "../post_components/DeletePostModal.jsx";
+import DeleteAccountModal from "../account_components/DeleteAccountModal.jsx";
 
 const Posts = () => {
 

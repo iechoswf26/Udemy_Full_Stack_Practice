@@ -12,7 +12,7 @@ const LandingPage = () => {
             <section id="hero">
                 <div className="w-screen h-screen">
                     <div className="flex flex-col items-center pt-60 text-white">
-                        <h1 className="text-8xl font-bold font-heading text-shadow-lg/100 p-3">Forked Fates</h1>
+                        <h1 className="text-8xl font-bold font-heading text-shadow-lg/100 p-3">Forked Path</h1>
                         <h3 className="text-5xl font-bold font-heading text-shadow-lg/100 p-3">The Last of Us 2</h3>
                         <p className="text-3xl font-semibold font-body text-shadow-lg/100 py-10">Every Choice Leaves A Mark</p>
 
