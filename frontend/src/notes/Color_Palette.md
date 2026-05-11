@@ -27,7 +27,7 @@ Dirty canvas / cloth
 | Purpose        | Color            | Hex       | Inspired by           |
 |----------------|------------------|-----------|-----------------------|
 | App background | Faded olive      | `#3B443B` | Her jacket            |
-| Form surface   | Worn canvas      | `#D4CFC4` | Fabric / undershirt   |
+| Posts surface   | Worn canvas      | `#D4CFC4` | Fabric / undershirt   |
 | Card section   | Dusty sage       | `#8C978C` | Washed green tones    |
 | Input field    | Muted denim-gray | `#6E7C7A` | Jeans                 |
 | Button         | Deep olive       | `#2F3E2F` | Dark jacket shadows   |

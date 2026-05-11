@@ -1,10 +1,13 @@
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 import React from "react";
+import EditUsername from "../account_components/EditUsername.jsx";
 
 const Account = () => {
     return (
         <div>
             <NavbarOther/>
+
+            <EditUsername/>
 
             <div className="flex flex-col my-20 mx-80">
 
@@ -55,11 +58,11 @@ const Account = () => {
                     <h6 className="font-heading font-medium text-2xl">Delete Account</h6>
 
                     <div className="flex flex-row items-center justify-between">
-                        <p className="font-body text-xl">Do you want to delete your account? Deleting your account will remove all content associated with it.</p>
+                        <p className="font-body text-xl">Do you want to delete your account? Deleting your account will remove all associated data.</p>
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <button className="p-2 px-10 py-3 rounded-xl bg-black text-white font-body text-xl hover:bg-white hover:text-black hover:border-2 hover:border-black">Delete Account</button>
+                        <button className="p-2 px-10 py-3 rounded-xl bg-black text-white font-body text-xl hover:bg-red-700 hover:text-white hover:border-2 hover:font-medium">Delete Account</button>
                     </div>
                 </div>
 

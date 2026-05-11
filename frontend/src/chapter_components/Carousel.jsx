@@ -96,7 +96,7 @@ export const Slide = ({ id, image, title, description, question, offset, isPageB
 
     const handleClick = () => {
         setNewCard(slideObject)
-        navigate("/Form")
+        navigate("/Posts")
     }
 
     return (

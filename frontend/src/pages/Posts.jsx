@@ -6,7 +6,7 @@ import {CardContext} from "../context/CheckpointContext.jsx";
 import postHistory from "../data/postHistory.js";
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 
-const Form = () => {
+const Posts = () => {
 
     const context = useContext(CardContext)
     if (!context) {
@@ -28,7 +28,7 @@ const Form = () => {
 
                 <h1 className="text-white text-3xl font-bold py-7">Form Page</h1>
 
-                {/* Form */}
+                {/* Posts */}
                 <div className="flex flex-col items-center w-3/4 h-auto mt-1 pt-6 bg-[#D4CFC4] rounded-lg shadow-lg">
 
 
@@ -57,4 +57,4 @@ const Form = () => {
     )
 }
 
-export default Form;
+export default Posts;
