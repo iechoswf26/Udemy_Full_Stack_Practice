@@ -11,7 +11,7 @@ const Account = () => {
             {/*<EditUsernameModal/>*/}
             {/*<DeleteAccountModal/>*/}
 
-            <div className="flex flex-col my-20 mx-80">
+            <div className="flex flex-col my-20 mx-120">
 
                 <div className="border-b-2 border-gray-400">
 
