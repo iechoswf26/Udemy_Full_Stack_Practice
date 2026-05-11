@@ -1,5 +1,6 @@
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 import React from "react";
+import SignUpModal from "../account_components/SignUpModal.jsx";
 
 const Account = () => {
     return (

@@ -1,25 +1,23 @@
 const NewPost = () => {
     return (
-        <div className="w-1/2 h-50 mt-2 mb-16 p-3 border-2 rounded-xl border-[#A8ADA3] bg-[#8C978C]">
+        <div className="flex flex-col items-center justify-center bg-gray-300 w-10/12 rounded-lg">
 
-            {/*    Text Area and Button*/}
-            <div className="flex flex-col mt-3 space-y-3 px-4">
-                <input
-                    type="textarea"
+            <div className="w-11/12 space-y-3 my-10">
+
+                <textarea
                     placeholder="Post here..."
-                    className="p-2 px-4 h-25 border border-[#7C857C] rounded-xl bg-[#6E7C7A] text-start text-[#E7E3DA] text-lg placeholder:text-[#D4CFC4] focus:outline-none"
+                    className="w-full bg-white border-2 border-black rounded-lg placeholder:font-body placeholder:font-medium placeholder:text-xl p-3"
                 />
 
                 <div className="flex justify-end">
-                    <button
-                        className="px-5 py-3 rounded-md bg-[#2F3E2F] text-[#E7E3DA] hover:bg-[#161d16] transition">Post
-                    </button>
+                    <button className="p-2 px-5 py-3 rounded-xl border-2 border-black bg-black text-white font-body text-xl hover:bg-white hover:text-black hover:border-2 hover:border-black hover:font-semibold" >Post</button>
                 </div>
 
             </div>
-
         </div>
     )
 }
 
 export default NewPost;
+
+

@@ -27,7 +27,7 @@ const Posts = () => {
             <div className="flex flex-col items-center justify-center bg-black">
 
                 {/* Container for PostCheckpointCard, NewPost, and PostHistory */}
-                <div className="flex flex-col items-center justify-center w-8/12 h-auto my-11 space-y-10 bg-black">
+                <div className="flex flex-col items-center justify-center w-8/12 h-auto my-11 space-y-8 bg-black">
 
                     {/* PostCheckpointCard */}
                     <PostCheckpointCard key={card.id} {...card}/>
@@ -42,7 +42,6 @@ const Posts = () => {
 
                     {postHistory.filter(post => post.checkpointId === card.id).map(post => <PostHistory key={post.id} {...post}/>)
                     }
-
                 </div>
 
             </div>
