@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+
+const baseURL = 'http://localhost:8080'
+const client = axios.create({baseURL: baseURL})
+
 // User API Service
 export const axiosSaveUser = async (user) => {
     try {
@@ -95,35 +99,10 @@ export const axiosGetAllCheckpointsByChapterId = async (id) => {
 // Chapter API Service
 export const axiosFindChapterById = async (id) => {
     try {
-        const response = await axios.get(`/api/v1/chapter/${id}`);
+        const response = await client.get(`/api/v1/chapter/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching chapter:', error);
         throw error;
     }
 };
-
-
-//import { useEffect, useState } from "react";
-//        import axios from "axios";
-//
-//function Checkpoints() {
-//  const [checkpoints, setCheckpoints] = useState([]);
-//
-//    useEffect(() => {
-//            axios.get("http://localhost:8080/api/v1/checkpoints")
-//                    .then(res => setCheckpoints(res.data))
-//                    .catch(err => console.error(err));
-//  }, []);
-//
-//    return (
-//            <div>
-//            {checkpoints.map(cp => (
-//                    <div key={cp.id}>
-//                    <h3>{cp.title}</h3>
-//                    <p>{cp.description}</p>
-//                    </div>
-//            ))}
-//    </div>
-//  );
-//}

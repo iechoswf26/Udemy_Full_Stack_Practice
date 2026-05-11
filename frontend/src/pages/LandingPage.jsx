@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router";
 import NavbarHome from "../navbar_components/NavbarHome.jsx";
+import SignUpModal from "../account_components/SignUpModal.jsx";
 
 const LandingPage = () => {
 
@@ -8,6 +9,7 @@ const LandingPage = () => {
     return (
         <div>
             <NavbarHome/>
+            {/*<SignUpModal/>*/}
 
             <section id="hero">
                 <div className="w-screen h-screen">

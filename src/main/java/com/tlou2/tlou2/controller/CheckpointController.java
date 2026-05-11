@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/checkpoint")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class CheckpointController {
 
     private final CheckpointService checkpointService;

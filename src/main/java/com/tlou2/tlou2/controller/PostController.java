@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController // @RestController: Processes incoming HTTP requests and returns data objects (rather than views).
 @RequestMapping("/api/v1/post")
+@CrossOrigin("*")
 /* @RequestMapping:
 - Map HTTP requests.
 - Routes client requests to appropriate business logic.

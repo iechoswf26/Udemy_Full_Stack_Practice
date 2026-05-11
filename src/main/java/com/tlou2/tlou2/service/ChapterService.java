@@ -28,4 +28,9 @@ public class ChapterService {
         return chapterRepository.findById(id).orElseThrow();
     }
 
+    public List<Chapter> findAllChapters () {
+        return chapterRepository.findAll();
+    }
+
+
 }

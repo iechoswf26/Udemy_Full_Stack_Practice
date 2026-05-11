@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+:root {
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif
+}
+
 #navbarOther {
     background-image: url('assets/TLOU2_Infection_Spreading.png');
     background-repeat: no-repeat;

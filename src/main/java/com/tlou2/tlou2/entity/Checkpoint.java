@@ -4,6 +4,8 @@ Package name is required and is explicitly declared at the top of the Java file.
 package com.tlou2.tlou2.entity;
 
 // Required for all JPA annotations (@Entity, @Table, @Id, etc.)
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -29,8 +31,9 @@ public class Checkpoint {
     @Column (name="image_data", nullable = false, columnDefinition = "TEXT")
     private String imageData;
 
-    @ManyToOne //Many Checkpoints to One Chapter
+    @ManyToOne(fetch = FetchType.LAZY) //Many Checkpoints to One Chapter
     @JoinColumn(name = "chapter_id")
+    @JsonIgnore
     private Chapter chapter; // Every Chapter object holds reference to many Checkpoint objects.
 
     @OneToMany (mappedBy = "checkpoint") // One Checkpoint to Many Posts

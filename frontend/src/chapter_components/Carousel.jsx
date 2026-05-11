@@ -184,13 +184,13 @@ const Carousel = ({ slides, isPageBackground }) => {
 
                             if (typeof slide === 'string') {
                                 return (
-                                    <Slide id={slide.id} image={slide} offset={offset} isPageBackground={isPageBackground} key={i} />
+                                    <Slide id={slide.id} image={slide.imageData} offset={offset} isPageBackground={isPageBackground} key={i} />
                                 );
                             } else {
                                 return (
                                     <Slide
                                         id={slide.id}
-                                        image={slide.image}
+                                        image={slide.imageData}
                                         title={slide.title}
                                         description={slide.description}
                                         question={slide.question}

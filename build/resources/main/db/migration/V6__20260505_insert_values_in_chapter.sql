@@ -1,0 +1,3 @@
+INSERT INTO chapter (id, title, description)
+VALUES
+    (1, 'Chapter 1 - Jackson', 'In The Last of Us Part II, Chapter 1: Jackson introduces a fragile sense of peace as Ellie and Joel live among a thriving survivor community. During a winter patrol, Joel and Tommy rescue a stranger named Abby, unknowingly placing themselves in danger. They follow her to a nearby lodge, where they are ambushed by her group seeking revenge for past actions. The chapter ends with Joel’s brutal death, shattering the calm of Jackson and setting Ellie on a path driven by grief and vengeance.');

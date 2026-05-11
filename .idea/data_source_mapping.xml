@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V5__20260511_add_description_to_chapter.sql" value="1262485a-efcb-4958-a8ef-3b241bdb33b0" />
+  </component>
+</project>

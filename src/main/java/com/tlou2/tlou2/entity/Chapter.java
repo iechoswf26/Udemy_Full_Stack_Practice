@@ -4,6 +4,7 @@ Package name is required and is explicitly declared at the top of the Java file.
 package com.tlou2.tlou2.entity;
 
 // Required for all JPA annotations (@Entity, @Table, @Id, etc.)
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 // Required for Java List class.
@@ -20,6 +21,10 @@ public class Chapter {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
+
+
     @OneToMany(mappedBy = "chapter") // One Chapter to Many Checkpoints
     private List<Checkpoint> checkpoints; // Every Chapter objects holds reference to a list of many Checkpoint objects.
 
@@ -28,9 +33,11 @@ public class Chapter {
     }
 
     // Constructor for Chapter Entity without ID.
-    public Chapter(String title, List<Checkpoint> checkpoints) {
+    public Chapter(String title, List<Checkpoint> checkpoints, String description) {
         this.title = title;
         this.checkpoints = checkpoints;
+        this.description = description;
+
     }
 
     // Setters and Getters for Chapter Entity
@@ -56,5 +63,13 @@ public class Chapter {
 
     public void setCheckpoints(List<Checkpoint> checkpoints) {
         this.checkpoints = checkpoints;
+    }
+
+    public String getDescription () {
+        return description;
+    }
+
+    public void setDescription (String description) {
+        this.description = description;
     }
 }
