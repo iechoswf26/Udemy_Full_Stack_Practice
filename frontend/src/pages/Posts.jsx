@@ -6,7 +6,7 @@ import {CardContext} from "../context/CheckpointContext.jsx";
 import postHistory from "../data/postHistory.js";
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 import DeletePostModal from "../post_components/DeletePostModal.jsx";
-import DeleteAccountModal from "../account_components/DeleteAccountModal.jsx";
+import EditPostModal from "../post_components/EditPostModal.jsx";
 
 const Posts = () => {
 
@@ -24,6 +24,9 @@ const Posts = () => {
     return (
         <div>
             <NavbarOther/>
+
+            {/*<EditPostModal/>*/}
+            {/*<DeletePostModal/>*/}
 
             {/* Background Container*/}
             <div className="flex flex-col items-center justify-center bg-black">
