@@ -1,4 +1,4 @@
-const EditUsername = () => {
+const EditUsernameModal = () => {
     return (
     //     Global Container
         <div className="flex items-center justify-center min-h-screen">
@@ -44,4 +44,4 @@ const EditUsername = () => {
     )
 }
 
-export default EditUsername;
+export default EditUsernameModal;
