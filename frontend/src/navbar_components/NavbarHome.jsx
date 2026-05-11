@@ -5,7 +5,7 @@ const NavbarHome = () => {
 
                 {/* Website Name */}
                 <div>
-                    <h3 className="text-4xl">Forked Path</h3>
+                    <h3 className="text-4xl">Forked</h3>
                 </div>
 
                 {/* Menu */}
