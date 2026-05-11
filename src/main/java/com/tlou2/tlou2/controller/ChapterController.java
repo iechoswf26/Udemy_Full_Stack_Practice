@@ -7,6 +7,7 @@ import com.tlou2.tlou2.service.ChapterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController// @RestController: Processes incoming HTTP requests and returns data objects (rather than views).
@@ -34,4 +35,16 @@ public class ChapterController {
             return ResponseEntity.notFound().build(); // If the Service throws an exception, (1) HTTP Status: 404 Not Found. (2) Response Body: empty.
         }
     }
+
+    @GetMapping
+    public ResponseEntity<List<Chapter>> findAllChapters() {
+        try {
+            List<Chapter> chaptersResult = chapterService.findAllChapters();
+            return ResponseEntity.ok(chaptersResult);
+        } catch(IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 }

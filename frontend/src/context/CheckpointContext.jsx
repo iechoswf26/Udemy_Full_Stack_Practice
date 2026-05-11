@@ -16,7 +16,7 @@ export const CheckpointContext = ({ children }) => {
     }
 
     const chapterContent = async () => {
-        const chapterResult = await APIService.axiosFindChapterById(1)
+        const chapterResult = await APIService.axiosFindAllChapters()
         setChapter(chapterResult)
     }
 

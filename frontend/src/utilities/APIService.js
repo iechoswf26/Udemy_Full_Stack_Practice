@@ -97,9 +97,9 @@ export const axiosGetAllCheckpointsByChapterId = async (id) => {
 };
 
 // Chapter API Service
-export const axiosFindChapterById = async (id) => {
+export const axiosFindAllChapters = async () => {
     try {
-        const response = await client.get(`/api/v1/chapter/${id}`);
+        const response = await client.get('/api/v1/chapter');
         return response.data;
     } catch (error) {
         console.error('Error fetching chapter:', error);

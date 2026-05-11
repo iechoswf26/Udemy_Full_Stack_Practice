@@ -77,7 +77,7 @@ function useTilt(animationDuration = '150ms') {
     return ref;
 }
 
-export const Slide = ({ id, image, title, description, question, offset, isPageBackground }) => {
+export const Slide = ({ id, image, title, description, question, offset, isPageBackground, posts }) => {
     const active = offset === 0,
         ref = useTilt(active);
 
@@ -91,7 +91,7 @@ export const Slide = ({ id, image, title, description, question, offset, isPageB
     const {setNewCard} = context
 
     const slideObject = {
-        id, image, title, description, question, offset, isPageBackground
+        id, image, title, description, question, offset, isPageBackground, posts
     }
 
     const handleClick = () => {
@@ -184,7 +184,7 @@ const Carousel = ({ slides, isPageBackground }) => {
 
                             if (typeof slide === 'string') {
                                 return (
-                                    <Slide id={slide.id} image={slide.imageData} offset={offset} isPageBackground={isPageBackground} key={i} />
+                                    <Slide id={slide.id} image={slide.imageData} offset={offset} isPageBackground={isPageBackground}  posts={slide.posts} key={i} />
                                 );
                             } else {
                                 return (
@@ -196,6 +196,7 @@ const Carousel = ({ slides, isPageBackground }) => {
                                         question={slide.question}
                                         offset={offset}
                                         isPageBackground={isPageBackground}
+                                        posts={slide.posts}
                                         key={i}
                                     />
                                 );

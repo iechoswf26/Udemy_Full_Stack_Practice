@@ -3,7 +3,6 @@ import NewPost from "../post_components/NewPost.jsx";
 import PostHistory from "../post_components/PostHistory.jsx";
 import React, {useContext} from 'react';
 import {CardContext} from "../context/CheckpointContext.jsx";
-import postHistory from "../data/postHistory.js";
 import NavbarOther from "../navbar_components/NavbarOther.jsx";
 import DeletePostModal from "../post_components/DeletePostModal.jsx";
 import EditPostModal from "../post_components/EditPostModal.jsx";
@@ -17,9 +16,6 @@ const Posts = () => {
 
     const {card} = context
 
-    console.log(postHistory)
-    console.log(postHistory.filter((post) => post.id === card.id))
-    console.log(card)
 
     return (
         <div>
@@ -41,8 +37,7 @@ const Posts = () => {
                     <NewPost/>
 
                     {/*    Post History */}
-                    {postHistory.filter(post => post.checkpointId === card.id).map(post => <PostHistory key={post.id} {...post}/>)
-                    }
+                    {card.posts && card.posts.map(post => <PostHistory key={post.id} {...post}/>)}
                 </div>
 
             </div>

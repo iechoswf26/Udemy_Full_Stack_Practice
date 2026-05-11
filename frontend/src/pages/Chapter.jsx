@@ -55,15 +55,25 @@ const Chapter = () => {
                 <div className="bg-black">
                     <NavbarOther/>
                     <div className="flex flex-col items-center h-screen mt-12">
-                        <div className="flex flex-col items-center justify center px-24">
-                            <h1 className="text-white text-4xl font-heading font-bold my-3">{chapters.title}</h1>
-                            <p className="text-white text-2xl font-body my-5 mx-32">{chapters.description}</p>
-                        </div>
+
 
                         {
-                            // chapters.map(chapter => <Carousel slides={chapter.slides} key={chapter.id}/>)
+                            chapters.map(chapter =>
+                            {
+                                return(
+                                    <>
+                                        <div className="flex flex-col items-center justify center px-24">
+                                            <h1 className="text-white text-4xl font-heading font-bold my-3">{chapter.title}</h1>
+                                            <p className="text-white text-2xl font-body my-5 mx-32">{chapter.description}</p>
+                                        </div>
+                                        <Carousel slides={chapter.checkpoints} key={chapter.id}/>
+                                    </>
 
-                            <Carousel slides={chapters.checkpoints} key={chapters.id}/>
+                                    )
+
+                            })
+
+
                         }
                     </div>
                 </div>}
