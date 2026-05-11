@@ -24,22 +24,16 @@ const Posts = () => {
             <NavbarOther/>
 
             {/* Background Container*/}
-            <div className="flex flex-col items-center h-auto justify-center bg-[#3B443B]">
+            <div className="flex flex-col items-center justify-center bg-black">
 
-                <h1 className="text-white text-3xl font-bold py-7">Form Page</h1>
-
-                {/* Posts */}
-                <div className="flex flex-col items-center w-3/4 h-auto mt-1 pt-6 bg-[#D4CFC4] rounded-lg shadow-lg">
-
+                {/* Container for PostCheckpointCard, NewPost, and PostHistory */}
+                <div className="flex flex-col items-center justify-center w-8/12 h-auto my-11 space-y-10 bg-black">
 
                     {/* PostCheckpointCard */}
-
                     <PostCheckpointCard key={card.id} {...card}/>
-
 
                     {/*    New Post */}
                     <NewPost/>
-
 
                     {/*    Post History */}
                     <div className="flex items-center justify-center">

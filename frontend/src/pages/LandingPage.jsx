@@ -8,6 +8,7 @@ const LandingPage = () => {
     return (
         <div>
             <NavbarHome/>
+
             <section id="hero">
                 <div className="w-screen h-screen">
                     <div className="flex flex-col items-center pt-60 text-white">
