@@ -6,7 +6,7 @@ const NewPost = () => {
 
                 <textarea
                     placeholder="Post here..."
-                    className="w-full bg-white border-2 border-black rounded-lg placeholder:font-body placeholder:font-medium placeholder:text-xl p-3"
+                    className="w-full bg-white border-2 border-black rounded-lg text-xl placeholder:font-body placeholder:font-medium placeholder:text-xl p-3"
                 />
 
                 <div className="flex justify-end">
