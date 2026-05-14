@@ -2,8 +2,13 @@
 Uses reverse domain name: com.yourcompany.project.module. */
 package com.tlou2.tlou2.service;
 
+import com.tlou2.tlou2.DTOs.ChapterObject;
+import com.tlou2.tlou2.DTOs.CheckpointObject;
+import com.tlou2.tlou2.DTOs.PostObject;
 import com.tlou2.tlou2.entity.Chapter;
 import com.tlou2.tlou2.repository.ChapterRepository;
+import com.tlou2.tlou2.repository.PostRepository;
+import com.tlou2.tlou2.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,9 +33,16 @@ public class ChapterService {
         return chapterRepository.findById(id).orElseThrow();
     }
 
-    public List<Chapter> findAllChapters () {
-        return chapterRepository.findAll();
+    public List<ChapterObject> findAllChapters () {
+        List<Chapter> chapters = this.chapterRepository.findAll();
+        return chapters.stream().map(chapter ->{
+            List<CheckpointObject> checkpoints = chapter.getCheckpoints().stream().map(checkpoint -> {
+                List<PostObject> posts = checkpoint.getPosts().stream().map(post -> {
+                    return new PostObject(post.getId(), post.getPost(), post.getPostedDateTime(), post.getUser().getUsername());
+                }).toList();
+                return new CheckpointObject(checkpoint.getDescription(), checkpoint.getId(), checkpoint.getImageData(), checkpoint.getQuestion(), checkpoint.getTitle(), posts);
+            }).toList();
+            return new ChapterObject(chapter.getId(), chapter.getDescription(), chapter.getTitle(), checkpoints);
+        }).toList();
     }
-
-
 }

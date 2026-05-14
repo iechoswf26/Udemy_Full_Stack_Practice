@@ -22,7 +22,7 @@ const Chapter = () => {
             setIsLoading(false)
         }
 
-        console.log(chapters)
+        console.log("CHAPTER PAGE", chapters)
     }, [chapters]);
 
     return (
@@ -58,7 +58,7 @@ const Chapter = () => {
 
 
                         {
-                            chapters.map(chapter =>
+                            chapters.map((chapter =>
                             {
                                 return(
                                     <>
@@ -66,14 +66,12 @@ const Chapter = () => {
                                             <h1 className="text-white text-4xl font-heading font-bold my-3">{chapter.title}</h1>
                                             <p className="text-white text-2xl font-body my-5 mx-32">{chapter.description}</p>
                                         </div>
-                                        <Carousel slides={chapter.checkpoints} key={chapter.id}/>
+                                        <Carousel chapterId={chapter.id} slides={chapter.checkpoints} key={chapter.id}/>
                                     </>
 
                                     )
 
-                            })
-
-
+                            }))
                         }
                     </div>
                 </div>}

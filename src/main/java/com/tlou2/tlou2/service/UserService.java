@@ -32,6 +32,15 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(); // Tell userRepository to find the ID.
     }
 
+    public User findByUsername(String username) {
+        Optional<User> foundUser = userRepository.findByUsername(username);
+        if (foundUser.isPresent()) {
+            return foundUser.get();
+        } else {
+            return null;
+        }
+    }
+
     public void deleteUserById(Long id) {
         try {
             userRepository.deleteById(id); // Return "deleted."

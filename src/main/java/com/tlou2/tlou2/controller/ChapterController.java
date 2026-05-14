@@ -2,6 +2,7 @@
 Uses reverse domain name: com.yourcompany.project.module. */
 package com.tlou2.tlou2.controller;
 
+import com.tlou2.tlou2.DTOs.ChapterObject;
 import com.tlou2.tlou2.entity.Chapter;
 import com.tlou2.tlou2.service.ChapterService;
 import org.springframework.http.ResponseEntity;
@@ -37,13 +38,8 @@ public class ChapterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Chapter>> findAllChapters() {
-        try {
-            List<Chapter> chaptersResult = chapterService.findAllChapters();
-            return ResponseEntity.ok(chaptersResult);
-        } catch(IllegalArgumentException e) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<List<ChapterObject>> findAllChapters() {
+        return ResponseEntity.ok(this.chapterService.findAllChapters());
     }
 
 

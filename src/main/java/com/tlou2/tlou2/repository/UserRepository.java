@@ -4,12 +4,15 @@ package com.tlou2.tlou2.repository;
 
 import com.tlou2.tlou2.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository // @Repository: Instantiate PostRepository and make it available for dependency injection elsewhere.
 public interface UserRepository extends JpaRepository<User, Long> { //JpaRepository: Generic interface that extends into repository interfaces. Acquire 18 common methods (e.g. findById(id)).
 // <Post, Long> Post is entity class that JpaRepository manages. Long is data type of primary key (@Id).
-
+    Optional<User> findByUsername(@Param("username") String username);
 
 }
 

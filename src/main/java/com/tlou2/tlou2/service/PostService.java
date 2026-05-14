@@ -2,10 +2,13 @@
 Uses reverse domain name: com.yourcompany.project.module. */
 package com.tlou2.tlou2.service;
 
+import com.tlou2.tlou2.DTOs.PostDeleteRequest;
+import com.tlou2.tlou2.DTOs.PostUpdateRequest;
 import com.tlou2.tlou2.entity.Post;
 import com.tlou2.tlou2.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +30,7 @@ public class PostService {
     }
 
     public Post savePost (Post post) {
+        post.setPostedDateTime(LocalDateTime.now());
         return postRepository.save(post);
     }
 
@@ -34,21 +38,25 @@ public class PostService {
         return postRepository.findAllByCheckpointId(checkpointId);
     }
 
-    public Post updatePost(Post post) {
-        Optional<Post> foundPost = postRepository.findById(post.getId());
+    public Post updatePost(PostUpdateRequest post) {
+        Optional<Post> foundPost = postRepository.findById(post.getPostId());
         if (foundPost.isPresent()) {
-            return postRepository.save(post);
-        } else {
-            return null;
+            Post updatePost = foundPost.get();
+            if (updatePost.getUser().getId().equals(post.getUserId())){
+                updatePost.setPost(post.getPost());
+                updatePost.setPostedDateTime(LocalDateTime.now());
+                return this.postRepository.save(updatePost);
+            }
         }
-
+        return null;
     }
 
-    public void deletePostById (Long id) {
-        Optional<Post> foundPost = postRepository.findById(id);
+    public void deletePostById (Long userId, Long postId) {
+        Optional<Post> foundPost = postRepository.findById(postId);
         if (foundPost.isPresent()) {
-            postRepository.deleteById(id);
+            if (foundPost.get().getUser().getId().equals(userId)){
+                this.postRepository.deleteById(postId);
+            }
         }
     }
-
 }

@@ -3,14 +3,14 @@ VALUES
     ('1.1 Prologue',
      'The Last of Us Part II opens with Joel recounting the events of the first game to Tommy, including how he saved Ellie and lied about the Fireflies. It then transitions to Joel returning to Jackson, where he shares a quiet, emotional moment with Ellie that hints at tension beneath their relationship. The scene closes with Joel attempting to reconnect by offering to teach Ellie guitar, setting a reflective tone before the story moves forward.',
      'Should Joel have lied to Ellie about the Fireflies, or did that decision make everything that followed inevitable?',
-     'https://imgur.com/29gUUyR.png',
+     'https://i.imgur.com/29gUUyR.png',
      1
     ),
 
     ('1.2 Waking Up',
      'Ellie starts her day in Jackson, revealing bits of her personality and relationships through optional exploration and journal entries. She then heads out into town, setting up her dynamic with Dina and the normal life they’ve built before things begin to unravel.',
      'Should Ellie have been allowed to stay in the safety of Jackson, or was her comfort only ever temporary before the truth caught up with her?',
-     'https://imgur.com/f1OHQmk.png',
+     'https://i.imgur.com/f1OHQmk.png',
      1
     ),
 

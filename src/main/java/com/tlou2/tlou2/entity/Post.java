@@ -4,6 +4,8 @@ Package name is required and is explicitly declared at the top of the Java file.
 package com.tlou2.tlou2.entity;
 
 // Required for all JPA annotations (@Entity, @Table, @Id, etc.)
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -24,10 +26,12 @@ public class Post {
 
     @ManyToOne // Many Posts to One User
     @JoinColumn(name = "user_id") // Foreign key in post table.
+    @JsonIgnore
     private User user; // Every User objects holds reference to list of many Post objects.
 
     @ManyToOne // Many Posts to One Checkpoint
     @JoinColumn(name = "checkpoint_id") // Foreign key in post table.
+    @JsonIgnore
     private Checkpoint checkpoint;
 
 

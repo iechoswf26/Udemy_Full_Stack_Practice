@@ -77,7 +77,7 @@ function useTilt(animationDuration = '150ms') {
     return ref;
 }
 
-export const Slide = ({ id, image, title, description, question, offset, isPageBackground, posts }) => {
+export const Slide = ({ chapterId, id, image, title, description, question, offset, isPageBackground, posts }) => {
     const active = offset === 0,
         ref = useTilt(active);
 
@@ -90,12 +90,14 @@ export const Slide = ({ id, image, title, description, question, offset, isPageB
 
     const {setNewCard} = context
 
-    const slideObject = {
-        id, image, title, description, question, offset, isPageBackground, posts
+    const checkpointObject = {
+        chapterId: chapterId,
+        checkpointId: id
     }
 
     const handleClick = () => {
-        setNewCard(slideObject)
+        setNewCard(checkpointObject)
+        // console.log("SLIDE OBJECT: ", slideObject)
         navigate("/Posts")
     }
 
@@ -158,7 +160,7 @@ Slide.propTypes = {
     isPageBackground: PropTypes.bool,
 };
 
-const Carousel = ({ slides, isPageBackground }) => {
+const Carousel = ({chapterId, slides, isPageBackground }) => {
     const [slideIndex, setSlideIndex] = useState(0);
 
     const handlePrevSlide = () => {
@@ -181,14 +183,16 @@ const Carousel = ({ slides, isPageBackground }) => {
 
                         {slides.map((slide, i) => {
                             let offset = i- slideIndex;
+                            console.log("CAROUSEL", slide.posts)
 
                             if (typeof slide === 'string') {
                                 return (
-                                    <Slide id={slide.id} image={slide.imageData} offset={offset} isPageBackground={isPageBackground}  posts={slide.posts} key={i} />
+                                    <Slide chapterId={chapterId} id={slide.id} image={slide.imageData} offset={offset} isPageBackground={isPageBackground}  posts={slide.posts} key={i} />
                                 );
                             } else {
                                 return (
                                     <Slide
+                                        chapterId={chapterId}
                                         id={slide.id}
                                         image={slide.imageData}
                                         title={slide.title}

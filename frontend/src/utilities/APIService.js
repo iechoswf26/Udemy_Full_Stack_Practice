@@ -7,7 +7,7 @@ const client = axios.create({baseURL: baseURL})
 // User API Service
 export const axiosSaveUser = async (user) => {
     try {
-        const response = await axios.post('/api/v1/user', user);
+        const response = await client.post('/api/v1/user', user);
         return response.data;
     } catch (error) {
         console.error('Error saving user:', error);
@@ -17,7 +17,17 @@ export const axiosSaveUser = async (user) => {
 
 export const axiosFindUserById = async (id) => {
     try {
-        const response = await axios.get(`/api/v1/user/${id}`);
+        const response = await client.get(`/api/v1/user/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        throw error;
+    }
+};
+
+export const axiosFindUserByUsername = async (username) => {
+    try {
+        const response = await client.post('/api/v1/user/login', username);
         return response.data;
     } catch (error) {
         console.error('Error fetching user:', error);
@@ -27,7 +37,7 @@ export const axiosFindUserById = async (id) => {
 
 export const axiosUpdateUser = async (user) => {
     try {
-        const response = await axios.put ('/api/v1/user', user);
+        const response = await client.put ('/api/v1/user', user);
         return response.data;
     } catch (error) {
         console.error('Error updating user:', error);
@@ -37,7 +47,7 @@ export const axiosUpdateUser = async (user) => {
 
 export const axiosDeleteUserById = async (id) => {
     try {
-        await axios.delete(`/api/v1/user/${id}`);
+        await client.delete(`/api/v1/user/${id}`);
     } catch (error) {
         console.error(`Error deleting user with id ${id}:`, error);
         throw error;
@@ -46,9 +56,9 @@ export const axiosDeleteUserById = async (id) => {
 
 
 // Post API Service
-export const axiosSavePost = async (post) => {
+export const axiosSavePost = async (postRequest) => {
     try {
-        const response = await axios.post('/api/v1/post', post);
+        const response = await client.post(`/api/v1/post/${postRequest.userId}/${postRequest.checkpointId}`, {post: postRequest.post})
         return response.data;
     } catch (error) {
         console.error('Error saving post:', error);
@@ -58,7 +68,7 @@ export const axiosSavePost = async (post) => {
 
 export const axiosFindAllPostsByCheckpointId = async (id) => {
     try {
-        const response = await axios.get(`/api/v1/posts/${id}`);
+        const response = await client.get(`/api/v1/posts/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching posts:', error);
@@ -68,7 +78,7 @@ export const axiosFindAllPostsByCheckpointId = async (id) => {
 
 export const axiosUpdatePost = async (post) => {
     try {
-        const response = await axios.put ('/api/v1/post', post);
+        const response = await client.put ('/api/v1/post', post);
         return response.data;
     } catch (error) {
         console.error('Error updating post:', error);
@@ -76,11 +86,11 @@ export const axiosUpdatePost = async (post) => {
     }
 };
 
-export const axiosDeleteExistingPost = async (id) => {
+export const axiosDeleteExistingPost = async (userId, postId) => {
     try {
-        await axios.delete(`/api/v1/post/${id}`);
+        await client.delete(`/api/v1/post/${userId}/${postId}`);
     } catch (error) {
-        console.error(`Error deleting post with id ${id}:`, error);
+        console.error(`Error deleting post with id ${post.postId}:`, error);
         throw error;
     }
 };
@@ -88,7 +98,7 @@ export const axiosDeleteExistingPost = async (id) => {
 // Checkpoint API Service
 export const axiosGetAllCheckpointsByChapterId = async (id) => {
     try {
-        const response = await axios.get(`/api/v1/checkpoint/${id}`);
+        const response = await client.get(`/api/v1/checkpoint/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching checkpoints:', error);

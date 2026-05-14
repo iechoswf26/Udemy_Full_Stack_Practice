@@ -10,9 +10,9 @@ const PostCheckpointCard = (slide) => {
             {/*    Image*/}
             <div>
                 <img
-                    src={slide.image}
+                    src={slide.imageData}
                     alt={slide.title}
-                    className="object-fit inset-x-0 top-0 rounded-lg"
+                    className="object-cover inset-x-0 top-0 rounded-lg"
                 />
             </div>
 

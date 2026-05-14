@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController // @RestController: Processes incoming HTTP requests and returns data objects (rather than views).
 @RequestMapping("/api/v1/user")
 @CrossOrigin("*")
@@ -40,6 +42,18 @@ public class UserController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build(); // If the Service throws an exception, (1) HTTP Status: 404 Not Found. (2) Response Body: empty.
         }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> findUserByUsername(@RequestBody Map<String, String> body) {
+        String username = body.get("username");
+        System.out.println(username);
+       User user = userService.findByUsername(username);
+       if (user == null) {
+           return ResponseEntity.notFound().build();
+       } else {
+           return ResponseEntity.ok(user);
+       }
     }
 
     @PutMapping

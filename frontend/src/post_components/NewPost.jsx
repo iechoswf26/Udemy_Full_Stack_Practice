@@ -1,12 +1,13 @@
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import{object, string} from "yup";
-
+import React, {useContext} from 'react';
+import {CardContext} from "../context/CheckpointContext.jsx";
 
 const NewPost = () => {
 
     const postSchema = object ({
-        postArea: string()
+        post: string()
             .max(250, "Cannot be more than 250 characters.")
             .required("This field is required.")
     })
@@ -17,17 +18,25 @@ const NewPost = () => {
         handleSubmit,
         reset,
         formState:{errors}
-    } = useForm() ({
+    } = useForm ({
         resolver: yupResolver(postSchema)
     })
 
-    const onSubmit = (data) => {
+    // Need context before submit.
+    const checkpointContext = useContext(CardContext)
+    if (!checkpointContext) {
+        throw Error('Did not wrap in provider.')
+    }
+    const {submitPost} = checkpointContext
+
+    const onSubmit = async (data) => {
         console.log(data)
+        const validatedData = await postSchema.validate(data)
+        submitPost(validatedData.post)
         reset()
     }
 
     const handleChange = (e) => {
-        // console.log(`${e.target.name}: ${e.target.value}`)
         setValue(e.target.name, e.target.value)
     }
 
@@ -39,10 +48,10 @@ const NewPost = () => {
                 <textarea
                     placeholder="Post here..."
                     className="w-full bg-white border-2 border-black rounded-lg text-xl placeholder:font-body placeholder:font-medium placeholder:text-xl p-3"
-                    {...register("postArea")}
+                    {...register("post")}
                     onChange={handleChange}
                 />
-                {errors.postArea && <span> {errors.postArea.message}</span>}
+                {errors.post && <span> {errors.post.message}</span>}
 
                 <div className="flex justify-end">
                     <button
