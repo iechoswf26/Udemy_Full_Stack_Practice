@@ -5,15 +5,14 @@
     font-family: Oswald;
     src: url('../src/assets/font/Oswald-Regular.ttf')
 }
+@font-face {
+    font-family: Inter;
+    src: url('../src/assets/font/Inter_24pt-Regular.ttf')
+}
 
 @theme{
     --font-heading: "Oswald";
     --font-body: "Inter";
-}
-
-@font-face {
-    font-family: Inter;
-    src: url('../src/assets/font/Inter_24pt-Regular.ttf')
 }
 
 

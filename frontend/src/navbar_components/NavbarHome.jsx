@@ -22,7 +22,7 @@ const NavbarHome = () => {
                 </div>
 
                 {/* Menu */}
-                <div className="flex items-center justify-center space-x-6 text-xl">
+                <div className="flex items-center justify-center space-x-6 text-2xl">
                     <div className="group">
                         <a href="/">Home</a>
                         <div className="mx-2 group-hover:border-b group-hover:border-white"></div>
